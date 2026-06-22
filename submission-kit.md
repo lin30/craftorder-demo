@@ -41,7 +41,9 @@
 
 ### 3. Demo 体验地址
 
-提交时填写公开部署链接，或上传本目录打包后的 HTML zip。
+公开体验链接：https://lin30.github.io/craftorder-demo/
+
+备用提交包：`craftorder-demo-upload.zip`。
 
 ### 4. TRAE 实践过程
 
