@@ -199,14 +199,14 @@ h4 {
   font-size: 15px;
 }
 
-.score-strip {
+.stats-strip {
   display: grid;
   grid-template-columns: repeat(2, minmax(110px, 1fr));
   gap: 8px;
   min-width: 250px;
 }
 
-.score-strip span {
+.stats-strip span {
   border: 1px solid var(--line);
   background: rgba(255, 250, 241, 0.72);
   padding: 12px;
@@ -214,7 +214,7 @@ h4 {
   color: var(--muted);
 }
 
-.score-strip b {
+.stats-strip b {
   display: block;
   color: var(--ink);
   font-size: 20px;
@@ -627,7 +627,7 @@ ol {
   }
 
   .rail-nav,
-  .score-strip,
+  .stats-strip,
   .metrics,
   .two-col,
   .booking-details {
@@ -672,7 +672,7 @@ ol {
             <p class="eyebrow">从手艺到可采购课程</p>
             <h1>把一门非遗技艺，变成学校可采购、学生可体验、游客可预约的研学产品。</h1>
           </div>
-          <div class="score-strip" aria-label="核心能力概览">
+          <div class="stats-strip" aria-label="核心能力概览">
             <span><b>4步</b>成课</span>
             <span><b>1页</b>预约</span>
             <span><b>3类</b>素材</span>
@@ -830,7 +830,7 @@ ol {
               <span id="bookingPeople">6-16 人成团</span>
               <span id="bookingTakeaway">作品可带走</span>
             </div>
-            <div class="order-confirm" id="reserveState">预约页已生成，等待游客选择时间。</div>
+            <div class="order-confirm" id="reserveState">预约信息待确认，等待游客选择时间。</div>
           </div>
         </section>
 
@@ -838,7 +838,7 @@ ol {
           <div class="section-head">
             <div>
               <p class="eyebrow">传播与销售包</p>
-              <h2 id="media-title">不是只生成文案，而是把课程推到真实渠道</h2>
+              <h2 id="media-title">把课程内容整理成可发布素材</h2>
             </div>
             <span class="status-pill">短视频传播素材</span>
           </div>
@@ -882,7 +882,7 @@ ol {
             <article class="evidence-card">
               <span class="index-chip">03</span>
               <h3>剪纸等项目天然适配</h3>
-              <p>中国剪纸已形成进校园、进社区、公益培训、文旅研学融合等实践基础。系统用剪纸、扎染、漆扇等低门槛手作项目，方便学生现场完成成果。</p>
+              <p>中国剪纸已形成进校园、进社区、公益培训、文旅研学融合等实践基础。匠单优先选用剪纸、扎染、漆扇等低门槛手作项目，方便学生现场完成成果。</p>
             </article>
           </div>
         </section>
@@ -1090,7 +1090,7 @@ function renderPlan() {
   document.querySelector("#corePlan").innerHTML = [
     ["课程包装", `面向${audience.label}，主打“${profile.motif}”主题，适配${audience.channel}。`],
     ["经营约束", `每场上限 ${state.capacity} 人，材料成本约 ${currency(state.cost)}/人，建议定价 ${currency(price)}/人。`],
-    ["可交付成果", `${profile.takeaway}，并生成学生任务卡、老师备课提醒和短视频素材。`]
+    ["可交付成果", `${profile.takeaway}，并整理出学生任务卡、老师备课提醒和短视频素材。`]
   ].map((item, index) => actionItem(item, index)).join("");
 
   document.querySelector("#objectives").innerHTML = nodeList(profile.objectives, "li");
@@ -1105,14 +1105,14 @@ function renderPlan() {
 
   document.querySelector("#videoScript").innerHTML = [
     `0-3 秒：展示一件${profile.name}成品，字幕“这不是普通手工课，是一门能被学校采购的非遗研学课”。`,
-    `3-15 秒：输入城市、人数、材料成本，AI 生成课程流程、学生任务卡和预约页。`,
+    `3-15 秒：输入城市、人数、材料成本，整理课程流程、学生任务卡和预约页。`,
     `15-30 秒：切到学生完成作品和成果墙，结尾提示“让手艺被看见，也被预约”。`
   ].map((text) => `<span>${text}</span>`).join("");
 
   document.querySelector("#socialTitles").innerHTML = [
     `把${profile.name}做成一节学校愿意采购的研学课`,
     `${state.city}周末亲子体验：${profile.takeaway}`,
-    `非遗传承人不会运营？先让 AI 生成一套接单页`
+    `非遗传承人接研学课，先整理一套接单页`
   ].map((text) => `<span>${text}</span>`).join("");
 
   document.querySelector("#partnerPitch").innerHTML =

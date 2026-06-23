@@ -38,7 +38,7 @@
             <p class="eyebrow">从手艺到可采购课程</p>
             <h1>把一门非遗技艺，变成学校可采购、学生可体验、游客可预约的研学产品。</h1>
           </div>
-          <div class="score-strip" aria-label="核心能力概览">
+          <div class="stats-strip" aria-label="核心能力概览">
             <span><b>4步</b>成课</span>
             <span><b>1页</b>预约</span>
             <span><b>3类</b>素材</span>
@@ -46,39 +46,39 @@
           </div>
         </header>
 
-        <section class="judge-panel" aria-label="初赛评审体验路径">
-          <div class="judge-intro">
-            <p class="eyebrow">初赛评审看板</p>
-            <h2>3 分钟跑通“从技艺到订单”的完整闭环</h2>
-            <p>评审不需要猜作品价值：页面直接对应创新性、实用性、完成度和设计体验四个维度，并给出可操作体验路径。</p>
+        <section class="workflow-panel" aria-label="接单流程概览">
+          <div class="workflow-intro">
+            <p class="eyebrow">接单流程</p>
+            <h2>从技艺、课程、报价到预约</h2>
+            <p>先填经营条件，再整理课程包、报价单、预约页和传播素材，传承人可以直接拿去和学校或研学机构沟通。</p>
           </div>
-          <div class="judge-metrics">
+          <div class="workflow-metrics">
             <article>
-              <span>创新性</span>
-              <strong>经营闭环</strong>
-              <p>不是非遗百科或图片生成，而是课程、预约、传播和接单的一体化工具。</p>
+              <span>课程包</span>
+              <strong>目标/流程/任务卡</strong>
+              <p>把一门手艺拆成老师看得懂、学生做得完的课堂安排。</p>
             </article>
             <article>
-              <span>实用性</span>
-              <strong>真实角色</strong>
-              <p>面向传承人、学校老师、研学机构和游客，输出可直接复用的业务材料。</p>
+              <span>报价单</span>
+              <strong>材料/场地/人工</strong>
+              <p>把成本摊开，给出保本价、建议价和单场接待规模。</p>
             </article>
             <article>
-              <span>完成度</span>
-              <strong>五屏可交互</strong>
-              <p>输入条件后，课程包、预约页、传播包和依据库同步生成。</p>
+              <span>预约页</span>
+              <strong>日期/时段/确认</strong>
+              <p>游客或老师选好时间后，页面形成一条可跟进的预约记录。</p>
             </article>
             <article>
-              <span>设计体验</span>
-              <strong>工坊操作台</strong>
-              <p>用非遗工坊的纸、墨、印章和材料色，服务清晰的产品流程。</p>
+              <span>传播包</span>
+              <strong>脚本/标题/话术</strong>
+              <p>同一套课程内容可以继续用于短视频、图文和机构合作。</p>
             </article>
           </div>
-          <div class="walkthrough" aria-label="推荐体验步骤">
+          <div class="walkthrough" aria-label="接单步骤">
             <span>01 选择项目与城市</span>
-            <span>02 生成课程与定价</span>
-            <span>03 查看预约页</span>
-            <span>04 复制成果包</span>
+            <span>02 整理课程与报价</span>
+            <span>03 确认预约信息</span>
+            <span>04 复制交付文本</span>
           </div>
         </section>
 
@@ -86,15 +86,15 @@
           <div class="section-head">
             <div>
               <p class="eyebrow">传承人端</p>
-              <h2 id="studio-title">输入经营条件，生成一套可交付研学方案</h2>
+              <h2 id="studio-title">输入经营条件，整理一套可交付研学方案</h2>
             </div>
-            <button class="primary-action" id="generateBtn" type="button">生成方案</button>
+            <button class="primary-action" id="generateBtn" type="button">整理方案</button>
           </div>
 
-          <div class="pain-strip" aria-label="真实痛点">
+          <div class="pain-strip" aria-label="传承人常见困难">
             <span>不会写课程介绍</span>
-            <span>不知道怎么定价</span>
-            <span>难向学校说明采购价值</span>
+            <span>算不清单人成本</span>
+            <span>说不出采购理由</span>
           </div>
 
           <div class="studio-grid">
@@ -169,8 +169,8 @@
               </div>
               <div class="analysis-panel" id="analysisPanel" aria-live="polite">
                 <div>
-                  <p class="eyebrow">智能生成过程</p>
-                  <h4 id="analysisTitle">已根据课程结构与经营约束生成方案</h4>
+                  <p class="eyebrow">方案记录</p>
+                  <h4 id="analysisTitle">已整理课程结构与经营约束</h4>
                 </div>
                 <div class="analysis-steps" id="analysisSteps"></div>
               </div>
@@ -192,7 +192,7 @@
               <div class="deliverable-panel" aria-label="成果包预览">
                 <div>
                   <p class="eyebrow">可交付成果包</p>
-                  <h4 id="deliveryTitle">学校采购版课程包已生成</h4>
+                  <h4 id="deliveryTitle">学校采购版课程包已整理</h4>
                 </div>
                 <dl class="deliverable-list">
                   <div>
@@ -218,7 +218,7 @@
           <div class="section-head">
             <div>
               <p class="eyebrow">学校/研学机构端</p>
-              <h2 id="school-title">一键生成老师能采购、学生能完成的课程包</h2>
+              <h2 id="school-title">给老师一份能直接评估的课程包</h2>
             </div>
             <span class="status-pill">学校可采购课程包</span>
           </div>
@@ -254,9 +254,9 @@
           <div class="section-head">
             <div>
               <p class="eyebrow">游客/家长端</p>
-              <h2 id="booking-title">把生成结果变成可预约体验页</h2>
+              <h2 id="booking-title">把课程方案接到具体预约</h2>
             </div>
-            <button class="ghost-action" type="button" id="mockReserve">模拟预约</button>
+            <button class="ghost-action" type="button" id="mockReserve">填入示例预约</button>
           </div>
 
           <div class="booking-page">
@@ -304,7 +304,7 @@
               </label>
               <button class="copy-action" type="submit">确认预约</button>
             </form>
-            <div class="order-confirm" id="reserveState">预约页已生成，等待游客选择时间。</div>
+            <div class="order-confirm" id="reserveState">待确认日期、时段和联系人。</div>
           </div>
         </section>
 
@@ -312,7 +312,7 @@
           <div class="section-head">
             <div>
               <p class="eyebrow">传播与销售包</p>
-              <h2 id="media-title">不是只生成文案，而是把课程推到真实渠道</h2>
+              <h2 id="media-title">把同一节课整理成可发布素材</h2>
             </div>
             <span class="status-pill">短视频传播素材</span>
           </div>
@@ -336,8 +336,8 @@
         <section class="view" id="evidence" aria-labelledby="evidence-title">
           <div class="section-head">
             <div>
-              <p class="eyebrow">政策与真实场景依据</p>
-              <h2 id="evidence-title">为什么主场景押“学校研学课程”</h2>
+              <p class="eyebrow">场景依据</p>
+              <h2 id="evidence-title">学校研学为什么适合作为第一场景</h2>
             </div>
             <span class="status-pill">政策与场景依据</span>
           </div>
@@ -351,12 +351,12 @@
             <article class="evidence-card">
               <span class="index-chip">02</span>
               <h3>课程化是关键</h3>
-              <p>非遗研学不是简单参观，需要课程目标、教学过程、实践体验和课程评价。匠单把“技艺”自动拆成学校能采购和老师能验收的课程包。</p>
+              <p>非遗研学需要课程目标、教学过程、实践体验和课程评价。匠单把“技艺”拆成学校能采购、老师能验收的课程包。</p>
             </article>
             <article class="evidence-card">
               <span class="index-chip">03</span>
               <h3>剪纸等项目天然适配</h3>
-              <p>中国剪纸已形成进校园、进社区、公益培训、文旅研学融合等实践基础。系统用剪纸、扎染、漆扇等低门槛手作项目，方便学生现场完成成果。</p>
+              <p>中国剪纸已形成进校园、进社区、公益培训、文旅研学融合等实践基础。匠单优先选用剪纸、扎染、漆扇等低门槛手作项目，方便学生现场完成成果。</p>
             </article>
           </div>
         </section>

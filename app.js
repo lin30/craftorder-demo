@@ -239,7 +239,7 @@ function renderPlan() {
   const deliveryBuyer = `可交付教学目标、${state.duration}分钟流程、学生任务卡、老师备课提醒和成果展示建议。`;
   const deliveryOps = `${state.capacity}人/场，建议价${currency(price)}/人，材料成本约${currency(state.cost)}/人，毛利空间约${margin}%。`;
 
-  document.querySelector("#deliveryTitle").textContent = `${profile.name}课程成果包已生成`;
+  document.querySelector("#deliveryTitle").textContent = `${profile.name}课程成果包已整理`;
   document.querySelector("#deliveryCourse").textContent = deliveryCourse;
   document.querySelector("#deliveryBuyer").textContent = deliveryBuyer;
   document.querySelector("#deliveryOps").textContent = deliveryOps;
@@ -256,7 +256,7 @@ function renderPlan() {
   document.querySelector("#corePlan").innerHTML = [
     ["课程包装", `面向${audience.label}，主打“${profile.motif}”主题，适配${audience.channel}。`],
     ["经营约束", `每场上限 ${state.capacity} 人，保本价约 ${currency(pricing.breakEven)}/人，建议定价 ${currency(price)}/人。`],
-    ["可交付成果", `${profile.takeaway}，并生成学生任务卡、老师备课提醒和短视频素材。`]
+    ["可交付成果", `${profile.takeaway}，并整理出学生任务卡、老师备课提醒和短视频素材。`]
   ].map((item, index) => actionItem(item, index)).join("");
 
   document.querySelector("#objectives").innerHTML = nodeList(profile.objectives, "li");
@@ -270,15 +270,15 @@ function renderPlan() {
   });
 
   document.querySelector("#videoScript").innerHTML = [
-    `0-3 秒：展示一件${profile.name}成品，字幕“这不是普通手工课，是一门能被学校采购的非遗研学课”。`,
-    `3-15 秒：输入城市、人数、材料成本，AI 生成课程流程、学生任务卡和预约页。`,
+    `0-3 秒：展示一件${profile.name}成品，字幕“一门能被学校采购的非遗研学课”。`,
+    `3-15 秒：输入城市、人数、材料成本，整理课程流程、学生任务卡和预约页。`,
     `15-30 秒：切到学生完成作品和成果墙，结尾提示“让手艺被看见，也被预约”。`
   ].map((text) => `<span>${text}</span>`).join("");
 
   document.querySelector("#socialTitles").innerHTML = [
     `把${profile.name}做成一节学校愿意采购的研学课`,
     `${state.city}周末亲子体验：${profile.takeaway}`,
-    `非遗传承人不会运营？先让 AI 生成一套接单页`
+    `非遗传承人接研学课，先整理一套接单页`
   ].map((text) => `<span>${text}</span>`).join("");
 
   document.querySelector("#partnerPitch").innerHTML =
@@ -286,12 +286,12 @@ function renderPlan() {
 }
 
 function renderAnalysisSteps(state, profile, audience, pricing) {
-  document.querySelector("#analysisTitle").textContent = "已根据课程结构与经营约束生成方案";
+  document.querySelector("#analysisTitle").textContent = "已整理课程结构与经营约束";
   document.querySelector("#analysisPanel").classList.remove("is-running");
   document.querySelector("#analysisSteps").innerHTML = [
-    ["技艺拆解", `识别 ${profile.name} 的关键主题“${profile.motif}”，匹配${state.duration}分钟课程结构。`],
-    ["采购适配", `面向${audience.label}，补齐教学目标、成果展示和安全提醒。`],
-    ["经营测算", `按材料、场地、人工、工具折旧和城市系数测算，保本价约${currency(pricing.breakEven)}/人。`]
+    ["拆技艺", `${profile.name} 的主题是“${profile.motif}”，适合做成${state.duration}分钟课程。`],
+    ["对齐采购", `${audience.label}需要教学目标、成果展示和安全提醒。`],
+    ["核算价格", `材料、场地、人工和工具折旧合计，保本价约${currency(pricing.breakEven)}/人。`]
   ].map((item, index) => actionItem(item, index)).join("");
 }
 
@@ -302,11 +302,11 @@ function runGeneration() {
 
   window.clearTimeout(generationTimer);
   analysisPanel.classList.add("is-running");
-  analysisTitle.textContent = "正在分析课程结构、成本约束和预约承接";
+  analysisTitle.textContent = "正在整理课程结构、成本和预约信息";
   analysisSteps.innerHTML = [
     ["读取参数", "识别项目、城市、客群、课时、人数和材料成本。"],
-    ["匹配规则", "组合课程目标、学生任务卡、老师备课提醒和传播素材。"],
-    ["测算定价", "拆解材料、场地、人工、工具折旧和城市消费系数。"]
+    ["整理课程", "组合课程目标、学生任务卡、老师备课提醒和传播素材。"],
+    ["核算报价", "拆解材料、场地、人工、工具折旧和城市消费系数。"]
   ].map((item, index) => actionItem(item, index)).join("");
 
   generationTimer = window.setTimeout(renderPlan, 900);
@@ -339,7 +339,7 @@ function buildTimeline(state, profile) {
       "35 分钟：图案设计与小样练习。",
       "80 分钟：完成正式作品。",
       "25 分钟：成果墙展示与学生讲述。",
-      "20 分钟：复盘记录，生成研学成果卡。"
+      "20 分钟：复盘记录，整理研学成果卡。"
     ];
   }
   return [
@@ -396,7 +396,7 @@ copyButton.addEventListener("click", async () => {
     await navigator.clipboard.writeText(latestSummary);
     copyButton.textContent = "已复制成果包";
   } catch {
-    copyButton.textContent = "已生成成果包";
+    copyButton.textContent = "已整理成果包";
   }
 
   window.setTimeout(() => {

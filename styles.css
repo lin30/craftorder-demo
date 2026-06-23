@@ -191,14 +191,14 @@ h4 {
   font-size: 15px;
 }
 
-.score-strip {
+.stats-strip {
   display: grid;
   grid-template-columns: repeat(2, minmax(110px, 1fr));
   gap: 8px;
   min-width: 250px;
 }
 
-.score-strip span {
+.stats-strip span {
   border: 1px solid var(--line);
   background: rgba(255, 250, 241, 0.72);
   padding: 12px;
@@ -206,20 +206,20 @@ h4 {
   color: var(--muted);
 }
 
-.score-strip b {
+.stats-strip b {
   display: block;
   color: var(--ink);
   font-size: 20px;
 }
 
-.judge-panel {
+.workflow-panel {
   display: grid;
   grid-template-columns: minmax(280px, 0.75fr) minmax(420px, 1.25fr);
   gap: 18px;
   padding: 22px 0 4px;
 }
 
-.judge-intro {
+.workflow-intro {
   min-height: 100%;
   padding: 22px;
   color: #fff8e8;
@@ -231,28 +231,28 @@ h4 {
   box-shadow: var(--shadow);
 }
 
-.judge-intro .eyebrow {
+.workflow-intro .eyebrow {
   color: #e6b56f;
 }
 
-.judge-intro h2 {
+.workflow-intro h2 {
   font-size: 28px;
   line-height: 1.2;
 }
 
-.judge-intro p:not(.eyebrow) {
+.workflow-intro p:not(.eyebrow) {
   color: rgba(255, 248, 232, 0.78);
   line-height: 1.7;
   margin: 14px 0 0;
 }
 
-.judge-metrics {
+.workflow-metrics {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
 }
 
-.judge-metrics article {
+.workflow-metrics article {
   min-height: 172px;
   padding: 15px;
   border: 1px solid var(--line);
@@ -261,7 +261,7 @@ h4 {
   box-shadow: 0 10px 26px rgba(63, 43, 22, 0.08);
 }
 
-.judge-metrics span {
+.workflow-metrics span {
   display: inline-flex;
   min-height: 28px;
   align-items: center;
@@ -273,14 +273,14 @@ h4 {
   font-weight: 700;
 }
 
-.judge-metrics strong {
+.workflow-metrics strong {
   display: block;
   margin-top: 12px;
   font-family: "Songti SC", "Noto Serif CJK SC", serif;
   font-size: 20px;
 }
 
-.judge-metrics p {
+.workflow-metrics p {
   margin: 8px 0 0;
   color: var(--muted);
   line-height: 1.55;
@@ -401,11 +401,14 @@ h4 {
   display: grid;
   gap: 16px;
   padding: 22px;
+  align-self: start;
+  align-content: start;
 }
 
 label {
   display: grid;
   gap: 7px;
+  align-content: start;
 }
 
 label span {
@@ -416,7 +419,7 @@ label span {
 input,
 select {
   width: 100%;
-  min-height: 44px;
+  height: 44px;
   border: 1px solid var(--line);
   background: var(--field);
   color: var(--ink);
@@ -844,7 +847,7 @@ ol {
   }
 
   .topbar,
-  .judge-panel,
+  .workflow-panel,
   .studio-grid,
   .learning-layout,
   .media-grid,
@@ -853,7 +856,7 @@ ol {
     grid-template-columns: 1fr;
   }
 
-  .judge-metrics,
+  .workflow-metrics,
   .walkthrough {
     grid-column: auto;
     grid-template-columns: repeat(2, 1fr);
@@ -881,8 +884,8 @@ ol {
   }
 
   .rail-nav,
-  .score-strip,
-  .judge-metrics,
+  .stats-strip,
+  .workflow-metrics,
   .walkthrough,
   .metrics,
   .two-col,
