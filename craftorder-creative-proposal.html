@@ -686,7 +686,7 @@ ol {
               <p class="eyebrow">传承人端</p>
               <h2 id="studio-title">输入经营条件，整理一套可交付研学方案</h2>
             </div>
-            <button class="primary-action" id="generateBtn" type="button">整理方案</button>
+            <button class="primary-action" id="planButton" type="button">整理方案</button>
           </div>
 
           <div class="studio-grid">
@@ -809,7 +809,7 @@ ol {
               <p class="eyebrow">游客/家长端</p>
               <h2 id="booking-title">把课程内容变成可预约体验页</h2>
             </div>
-            <button class="ghost-action" type="button" id="mockReserve">模拟预约</button>
+            <button class="ghost-action" type="button" id="quickSlotButton">选周六下午</button>
           </div>
 
           <div class="booking-page">
@@ -1039,9 +1039,9 @@ const audienceMap = {
 };
 
 const form = document.querySelector("#craftForm");
-const generateBtn = document.querySelector("#generateBtn");
+const planButton = document.querySelector("#planButton");
 const navButtons = document.querySelectorAll(".nav-button");
-const reserveButton = document.querySelector("#mockReserve");
+const quickSlotButton = document.querySelector("#quickSlotButton");
 
 function currency(value) {
   return `¥${Math.round(value)}`;
@@ -1116,7 +1116,7 @@ function renderPlan() {
   ].map((text) => `<span>${text}</span>`).join("");
 
   document.querySelector("#partnerPitch").innerHTML =
-    `<span>您好，我们可以为${audience.label}提供 ${state.duration} 分钟${profile.name}研学课程。课程包含文化导入、材料认知、动手创作、成果展示四个环节，每场可接待 ${state.capacity} 人，学生可带走作品，也可配合学校完成综合实践成果记录。</span>`;
+    `<span>您好，我们可以为${audience.label}提供 ${state.duration} 分钟${profile.name}研学课程。课程包含文化导入、材料认知、动手创作、成果展示四个环节，每场可接待 ${state.capacity} 人，学生可带走作品，也可配合学校完成综合实践成果记录。单场报价约 ${currency(state.cost * 2.2)}-${currency(price)}/人，可按学校预算微调；如果方便，我们可以约 15 分钟电话或到工坊看一次材料。</span>`;
 }
 
 function actionItem(item, index) {
@@ -1168,11 +1168,11 @@ navButtons.forEach((button) => {
 });
 
 form.addEventListener("input", renderPlan);
-generateBtn.addEventListener("click", renderPlan);
-reserveButton.addEventListener("click", () => {
+planButton.addEventListener("click", renderPlan);
+quickSlotButton.addEventListener("click", () => {
   const reserveState = document.querySelector("#reserveState");
-  reserveState.textContent = "已模拟预约：周六 14:00，16 人研学班，等待传承人确认。";
-  reserveState.classList.add("is-done");
+  reserveState.textContent = "已选周六 14:00，请补充联系人和联系电话后确认预约。";
+  reserveState.classList.remove("is-done");
 });
 
 renderPlan();

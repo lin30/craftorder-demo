@@ -148,13 +148,13 @@ const audienceMap = {
 
 const form = document.querySelector("#craftForm");
 const bookingForm = document.querySelector("#bookingForm");
-const generateBtn = document.querySelector("#generateBtn");
+const planButton = document.querySelector("#planButton");
 const navButtons = document.querySelectorAll(".nav-button");
-const reserveButton = document.querySelector("#mockReserve");
+const quickSlotButton = document.querySelector("#quickSlotButton");
 const copyButton = document.querySelector("#copySummary");
 
 let latestSummary = "";
-let generationTimer = null;
+let organizeTimer = null;
 
 function currency(value) {
   return `¥${Math.round(value)}`;
@@ -282,7 +282,7 @@ function renderPlan() {
   ].map((text) => `<span>${text}</span>`).join("");
 
   document.querySelector("#partnerPitch").innerHTML =
-    `<span>您好，我们可以为${audience.label}提供 ${state.duration} 分钟${profile.name}研学课程。课程包含文化导入、材料认知、动手创作、成果展示四个环节，每场可接待 ${state.capacity} 人，学生可带走作品，也可配合学校完成综合实践成果记录。</span>`;
+    `<span>您好，我们可以为${audience.label}提供 ${state.duration} 分钟${profile.name}研学课程。课程包含文化导入、材料认知、动手创作、成果展示四个环节，每场可接待 ${state.capacity} 人，学生可带走作品，也可配合学校完成综合实践成果记录。单场报价约 ${currency(pricing.breakEven)}-${currency(pricing.price)}/人，可按学校预算微调；如果方便，我们可以约 15 分钟电话或到工坊看一次材料。</span>`;
 }
 
 function renderAnalysisSteps(state, profile, audience, pricing) {
@@ -295,12 +295,12 @@ function renderAnalysisSteps(state, profile, audience, pricing) {
   ].map((item, index) => actionItem(item, index)).join("");
 }
 
-function runGeneration() {
+function organizePlan() {
   const analysisPanel = document.querySelector("#analysisPanel");
   const analysisTitle = document.querySelector("#analysisTitle");
   const analysisSteps = document.querySelector("#analysisSteps");
 
-  window.clearTimeout(generationTimer);
+  window.clearTimeout(organizeTimer);
   analysisPanel.classList.add("is-running");
   analysisTitle.textContent = "正在整理课程结构、成本和预约信息";
   analysisSteps.innerHTML = [
@@ -309,7 +309,7 @@ function runGeneration() {
     ["核算报价", "拆解材料、场地、人工、工具折旧和城市消费系数。"]
   ].map((item, index) => actionItem(item, index)).join("");
 
-  generationTimer = window.setTimeout(renderPlan, 900);
+  organizeTimer = window.setTimeout(renderPlan, 900);
 }
 
 function actionItem(item, index) {
@@ -361,13 +361,13 @@ navButtons.forEach((button) => {
 });
 
 form.addEventListener("input", renderPlan);
-generateBtn.addEventListener("click", runGeneration);
-reserveButton.addEventListener("click", () => {
+planButton.addEventListener("click", organizePlan);
+quickSlotButton.addEventListener("click", () => {
   document.querySelector("#bookingDate").value = "本周六";
   document.querySelector("#bookingSlot").value = "14:00-15:30";
-  document.querySelector("#bookingContact").value = "研学老师";
-  document.querySelector("#bookingPhone").value = "13800000000";
-  confirmBooking();
+  document.querySelector("#reserveState").textContent =
+    "已选本周六 14:00-15:30，请补充联系人和联系电话后确认预约。";
+  document.querySelector("#reserveState").classList.remove("is-done");
 });
 
 bookingForm.addEventListener("submit", (event) => {
@@ -381,8 +381,14 @@ function confirmBooking() {
   const reserveState = document.querySelector("#reserveState");
   const date = document.querySelector("#bookingDate").value;
   const slot = document.querySelector("#bookingSlot").value;
-  const contact = document.querySelector("#bookingContact").value.trim() || "体验用户";
-  const phone = document.querySelector("#bookingPhone").value.trim() || "待补充电话";
+  const contact = document.querySelector("#bookingContact").value.trim();
+  const phone = document.querySelector("#bookingPhone").value.trim();
+
+  if (!contact || !phone) {
+    reserveState.textContent = "请先补全联系人和联系电话，方便传承人确认材料和到场人数。";
+    reserveState.classList.remove("is-done");
+    return;
+  }
 
   reserveState.textContent =
     `预约成功：${contact} 已预约 ${date} ${slot} 的${profile.name}体验，联系电话 ${phone}。传承人将在 24 小时内确认材料与到场人数。`;
