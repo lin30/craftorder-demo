@@ -45,17 +45,23 @@ https://forum.trae.cn/t/topic/38895
 
 产品关键界面截图（如论坛外链预览不可见，可直接点击图片链接打开）：
 
-[传承人工作台与接单流程](https://lin30.github.io/craftorder-demo/screenshots/desktop-studio.png)
+传承人工作台与接单流程：
 
-![传承人工作台与接单流程](https://lin30.github.io/craftorder-demo/screenshots/desktop-studio.png)
+https://lin30.github.io/craftorder-demo/screenshots/desktop-studio.png
 
-[学校研学课程方案](https://lin30.github.io/craftorder-demo/screenshots/desktop-school.png)
+<img src="https://lin30.github.io/craftorder-demo/screenshots/desktop-studio.png" alt="传承人工作台与接单流程" width="900">
 
-![学校研学课程方案](https://lin30.github.io/craftorder-demo/screenshots/desktop-school.png)
+学校研学课程方案：
 
-[游客预约页](https://lin30.github.io/craftorder-demo/screenshots/desktop-booking.png)
+https://lin30.github.io/craftorder-demo/screenshots/desktop-school.png
 
-![游客预约页](https://lin30.github.io/craftorder-demo/screenshots/desktop-booking.png)
+<img src="https://lin30.github.io/craftorder-demo/screenshots/desktop-school.png" alt="学校研学课程方案" width="900">
+
+游客预约页：
+
+https://lin30.github.io/craftorder-demo/screenshots/desktop-booking.png
+
+<img src="https://lin30.github.io/craftorder-demo/screenshots/desktop-booking.png" alt="游客预约页" width="900">
 
 ### 4. TRAE 实践过程
 
@@ -68,13 +74,29 @@ https://forum.trae.cn/t/topic/38895
 
 关键步骤截图：
 
-![TRAE 中国版跑通验证](https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-demo-verification.png)
+TRAE 中国版跑通验证：
 
-![TRAE 中国版创意定位复核](https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-creative-review.png)
+https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-demo-verification.png
 
-![TRAE 中国版初赛材料复核](https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-material-review.png)
+<img src="https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-demo-verification.png" alt="TRAE 中国版跑通验证" width="900">
 
-![新版页面清理后截图](https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-copy-review.png)
+TRAE 中国版创意定位复核：
+
+https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-creative-review.png
+
+<img src="https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-creative-review.png" alt="TRAE 中国版创意定位复核" width="900">
+
+TRAE 中国版初赛材料复核：
+
+https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-material-review.png
+
+<img src="https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-material-review.png" alt="TRAE 中国版初赛材料复核" width="900">
+
+新版页面清理后截图：
+
+https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-copy-review.png
+
+<img src="https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-copy-review.png" alt="新版页面清理后截图" width="900">
 
 Session ID：
 
