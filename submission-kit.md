@@ -54,7 +54,7 @@
 - Session ID 1：中国版 TRAE Work CN 跑通验证：`309385543574250:dbebdd826c9575bcd3c1a14278696c32_6a38af5a0ef973d9fca7678e.6a38af5a0ef973d9fca76791.6a38af5a0ef973d9fca7678f:TRAE Work CN.0.1.20.no_sid.no_ppe.T(2026/6/22 11:43:22)`。
 - Session ID 2：中国版 TRAE Work CN 创意定位复核：`309385543574250:90724e23c8cf76893ea4bd0b5142c1b8_6a38b0750ef973d9fca76804.6a38b0750ef973d9fca76807.6a38b0750ef973d9fca76805:TRAE Work CN.0.1.20.no_sid.no_ppe.T(2026/6/22 11:48:05)`。
 - Session ID 3：中国版 TRAE Work CN 初赛材料复核：`309385543574250:e69294ee346dde8bb8bed9354ce942be_6a38b1ae0ef973d9fca76848.6a38b1ae0ef973d9fca7684b.6a38b1ae0ef973d9fca76849:TRAE Work CN.0.1.20.no_sid.no_ppe.T(2026/6/22 11:53:18)`。
-- Session ID 4：中国版 TRAE Work CN 复核新版文案：重点检查页面表达是否自然、产品流程是否清楚。
+以上 3 个 Session ID 均来自中国版 TRAE Work CN，已满足官方“关键任务 Session ID 不少于 3 个”的初赛要求。
 
 关键截图建议不少于 6 张：
 
@@ -112,7 +112,7 @@
 ## 复赛预埋路线
 
 - 传承人端：真实课程模板库、材料成本库、接待能力评估。
-- 学校端：研学课程采购清单、学生成果报告、老师评价表。
+- 学校端：研学课程采购清单、学生作品报告、老师评价表。
 - 游客端：城市非遗体验地图、预约管理、活动提醒。
 - 机构端：活动数据看板、课程复购率、地区非遗资源盘点。
 

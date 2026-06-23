@@ -49,12 +49,12 @@ https://forum.trae.cn/t/topic/38895
 
 ### 4. TRAE 实践过程
 
-本作品使用 TRAE 中国版完成创意复核、Demo 跑通验证、初赛材料复核和新版文案复核。关键过程如下：
+本作品使用 TRAE 中国版完成创意复核、Demo 跑通验证和初赛材料复核，并基于复核意见完成新版页面清理。关键过程如下：
 
 1. 在 TRAE Work CN 中绑定 `craftorder-demo` 本地目录，验证静态 Demo 可运行、五个模块可交互、JS 语法检查通过，并确认 GitHub Pages 体验链接可访问。
 2. 使用 TRAE Work CN 复核“匠单 CraftOrder”的赛道匹配、差异化表达和获奖角度，确认主线聚焦非遗课程化、预约化和接单化。
 3. 使用 TRAE Work CN 复核初赛材料，包括体验链接、截图清单、报名帖链接和初赛作品帖结构，确保符合官方模板。
-4. 使用 TRAE Work CN 继续检查新版页面，重点看文案是否自然、产品流程是否清楚。
+4. 根据 TRAE Work CN 的复核意见继续清理新版页面，重点去掉评审口吻、占位文案和工具腔表达。
 
 关键步骤截图：
 
@@ -64,7 +64,7 @@ https://forum.trae.cn/t/topic/38895
 
 ![TRAE 中国版初赛材料复核](https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-material-review.png)
 
-![TRAE 中国版新版文案复核](https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-copy-review.png)
+![新版页面清理后截图](https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-copy-review.png)
 
 Session ID：
 
@@ -77,8 +77,7 @@ Session ID 2：`309385543574250:90724e23c8cf76893ea4bd0b5142c1b8_6a38b0750ef973d
 Session ID 3：`309385543574250:e69294ee346dde8bb8bed9354ce942be_6a38b1ae0ef973d9fca76848.6a38b1ae0ef973d9fca7684b.6a38b1ae0ef973d9fca76849:TRAE Work CN.0.1.20.no_sid.no_ppe.T(2026/6/22 11:53:18)`  
 用途：中国版 TRAE Work CN 初赛材料复核，确认提交材料、截图清单和作品帖文案。
 
-Session ID 4：待从中国版 TRAE Work CN 会话复制。  
-用途：中国版 TRAE Work CN 新版文案复核，确认页面表达是否更像真实产品。
+以上 3 个 Session ID 均来自中国版 TRAE Work CN，已满足官方“关键任务 Session ID 不少于 3 个”的初赛要求。
 
 ### 5. 开发心得与下一步
 
@@ -87,6 +86,6 @@ Session ID 4：待从中国版 TRAE Work CN 会话复制。
 如果进入复赛，我会继续补强四个方向：
 
 - 传承人端：真实课程模板库、材料成本库、接待能力评估。
-- 学校端：研学课程采购清单、学生成果报告、老师评价表。
+- 学校端：研学课程采购清单、学生作品报告、老师评价表。
 - 游客端：城市非遗体验地图、预约管理和活动提醒。
 - 机构端：活动数据看板、课程复购率和地区非遗资源盘点。
