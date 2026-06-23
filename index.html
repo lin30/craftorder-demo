@@ -46,6 +46,42 @@
           </div>
         </header>
 
+        <section class="judge-panel" aria-label="初赛评审体验路径">
+          <div class="judge-intro">
+            <p class="eyebrow">初赛评审看板</p>
+            <h2>3 分钟跑通“从技艺到订单”的完整闭环</h2>
+            <p>评审不需要猜作品价值：页面直接对应创新性、实用性、完成度和设计体验四个维度，并给出可操作体验路径。</p>
+          </div>
+          <div class="judge-metrics">
+            <article>
+              <span>创新性</span>
+              <strong>经营闭环</strong>
+              <p>不是非遗百科或图片生成，而是课程、预约、传播和接单的一体化工具。</p>
+            </article>
+            <article>
+              <span>实用性</span>
+              <strong>真实角色</strong>
+              <p>面向传承人、学校老师、研学机构和游客，输出可直接复用的业务材料。</p>
+            </article>
+            <article>
+              <span>完成度</span>
+              <strong>五屏可交互</strong>
+              <p>输入条件后，课程包、预约页、传播包和依据库同步生成。</p>
+            </article>
+            <article>
+              <span>设计体验</span>
+              <strong>工坊操作台</strong>
+              <p>用非遗工坊的纸、墨、印章和材料色，服务清晰的产品流程。</p>
+            </article>
+          </div>
+          <div class="walkthrough" aria-label="推荐体验步骤">
+            <span>01 选择项目与城市</span>
+            <span>02 生成课程与定价</span>
+            <span>03 查看预约页</span>
+            <span>04 复制成果包</span>
+          </div>
+        </section>
+
         <section class="view is-visible" id="studio" aria-labelledby="studio-title">
           <div class="section-head">
             <div>
@@ -129,6 +165,27 @@
                 <span></span><span></span><span></span><span></span>
               </div>
               <div class="action-list" id="corePlan"></div>
+              <div class="deliverable-panel" aria-label="成果包预览">
+                <div>
+                  <p class="eyebrow">可交付成果包</p>
+                  <h4 id="deliveryTitle">学校采购版课程包已生成</h4>
+                </div>
+                <dl class="deliverable-list">
+                  <div>
+                    <dt>课程定位</dt>
+                    <dd id="deliveryCourse">杭州剪纸研学课，面向小学研学班。</dd>
+                  </div>
+                  <div>
+                    <dt>采购理由</dt>
+                    <dd id="deliveryBuyer">有教学目标、任务卡、成果展示和安全提醒。</dd>
+                  </div>
+                  <div>
+                    <dt>经营结果</dt>
+                    <dd id="deliveryOps">16 人/场，建议价 ¥99/人，材料成本可控。</dd>
+                  </div>
+                </dl>
+                <button class="copy-action" id="copySummary" type="button">复制成果包</button>
+              </div>
             </article>
           </div>
         </section>

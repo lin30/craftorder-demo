@@ -150,6 +150,9 @@ const form = document.querySelector("#craftForm");
 const generateBtn = document.querySelector("#generateBtn");
 const navButtons = document.querySelectorAll(".nav-button");
 const reserveButton = document.querySelector("#mockReserve");
+const copyButton = document.querySelector("#copySummary");
+
+let latestSummary = "";
 
 function currency(value) {
   return `¥${Math.round(value)}`;
@@ -194,6 +197,23 @@ function renderPlan() {
   document.querySelector("#bookingTakeaway").textContent = profile.takeaway;
   document.querySelector("#bookingIntro").textContent =
     `面向${audience.label}，在${state.city}工坊完成一件${profile.name}作品，课程包含文化导入、材料认知、动手创作和成果讲述。`;
+
+  const deliveryCourse = `${state.city}${profile.name}研学课，面向${audience.label}，主打${profile.motif}主题。`;
+  const deliveryBuyer = `可交付教学目标、${state.duration}分钟流程、学生任务卡、老师备课提醒和成果展示建议。`;
+  const deliveryOps = `${state.capacity}人/场，建议价${currency(price)}/人，材料成本约${currency(state.cost)}/人，毛利空间约${margin}%。`;
+
+  document.querySelector("#deliveryTitle").textContent = `${profile.name}课程成果包已生成`;
+  document.querySelector("#deliveryCourse").textContent = deliveryCourse;
+  document.querySelector("#deliveryBuyer").textContent = deliveryBuyer;
+  document.querySelector("#deliveryOps").textContent = deliveryOps;
+  latestSummary = [
+    "匠单 CraftOrder 成果包",
+    `课程：${deliveryCourse}`,
+    `采购理由：${deliveryBuyer}`,
+    `经营测算：${deliveryOps}`,
+    `预约页：${profile.takeaway}，${profile.age}，6-${state.capacity}人成团。`,
+    `传播标题：把${profile.name}做成一节学校愿意采购的研学课`
+  ].join("\n");
 
   document.querySelector("#corePlan").innerHTML = [
     ["课程包装", `面向${audience.label}，主打“${profile.motif}”主题，适配${audience.channel}。`],
@@ -281,6 +301,21 @@ reserveButton.addEventListener("click", () => {
   const reserveState = document.querySelector("#reserveState");
   reserveState.textContent = "已模拟预约：周六 14:00，16 人研学班，等待传承人确认。";
   reserveState.classList.add("is-done");
+});
+
+copyButton.addEventListener("click", async () => {
+  const originalText = copyButton.textContent;
+
+  try {
+    await navigator.clipboard.writeText(latestSummary);
+    copyButton.textContent = "已复制成果包";
+  } catch {
+    copyButton.textContent = "已生成成果包";
+  }
+
+  window.setTimeout(() => {
+    copyButton.textContent = originalText;
+  }, 1800);
 });
 
 renderPlan();

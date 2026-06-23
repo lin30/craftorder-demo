@@ -212,6 +212,103 @@ h4 {
   font-size: 20px;
 }
 
+.judge-panel {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.75fr) minmax(420px, 1.25fr);
+  gap: 18px;
+  padding: 22px 0 4px;
+}
+
+.judge-intro {
+  min-height: 100%;
+  padding: 22px;
+  color: #fff8e8;
+  background:
+    linear-gradient(135deg, rgba(37, 34, 29, 0.92), rgba(49, 92, 131, 0.72)),
+    repeating-linear-gradient(135deg, rgba(255, 248, 232, 0.1) 0 1px, transparent 1px 12px);
+  border: 1px solid rgba(37, 34, 29, 0.32);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.judge-intro .eyebrow {
+  color: #e6b56f;
+}
+
+.judge-intro h2 {
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.judge-intro p:not(.eyebrow) {
+  color: rgba(255, 248, 232, 0.78);
+  line-height: 1.7;
+  margin: 14px 0 0;
+}
+
+.judge-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.judge-metrics article {
+  min-height: 172px;
+  padding: 15px;
+  border: 1px solid var(--line);
+  background: rgba(255, 250, 241, 0.92);
+  border-radius: 8px;
+  box-shadow: 0 10px 26px rgba(63, 43, 22, 0.08);
+}
+
+.judge-metrics span {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  padding: 0 9px;
+  border-radius: 4px;
+  background: #efe0ca;
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.judge-metrics strong {
+  display: block;
+  margin-top: 12px;
+  font-family: "Songti SC", "Noto Serif CJK SC", serif;
+  font-size: 20px;
+}
+
+.judge-metrics p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+  font-size: 14px;
+}
+
+.walkthrough {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--line);
+}
+
+.walkthrough span {
+  min-height: 48px;
+  display: grid;
+  place-items: center;
+  padding: 10px;
+  background: #f5ead8;
+  color: var(--ink);
+  text-align: center;
+  font-size: 14px;
+}
+
 .view {
   display: none;
   padding-top: 28px;
@@ -393,6 +490,59 @@ button:focus-visible {
 .note-list {
   display: grid;
   gap: 10px;
+}
+
+.deliverable-panel {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid rgba(37, 34, 29, 0.2);
+  background:
+    linear-gradient(180deg, rgba(46, 109, 98, 0.1), rgba(168, 63, 53, 0.04)),
+    #fff8e8;
+  border-radius: 8px;
+}
+
+.deliverable-panel h4 {
+  margin: 0;
+  font-family: "Songti SC", "Noto Serif CJK SC", serif;
+  font-size: 20px;
+}
+
+.deliverable-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.deliverable-list div {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 10px 0;
+  border-top: 1px solid rgba(37, 34, 29, 0.12);
+}
+
+.deliverable-list dt {
+  color: var(--green);
+  font-weight: 700;
+}
+
+.deliverable-list dd {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.copy-action {
+  justify-self: start;
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid var(--green);
+  border-radius: 6px;
+  background: var(--green);
+  color: #fff8e8;
 }
 
 .action-item,
@@ -590,11 +740,18 @@ ol {
   }
 
   .topbar,
+  .judge-panel,
   .studio-grid,
   .learning-layout,
   .media-grid,
   .evidence-grid {
     grid-template-columns: 1fr;
+  }
+
+  .judge-metrics,
+  .walkthrough {
+    grid-column: auto;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -620,9 +777,12 @@ ol {
 
   .rail-nav,
   .score-strip,
+  .judge-metrics,
+  .walkthrough,
   .metrics,
   .two-col,
-  .booking-details {
+  .booking-details,
+  .deliverable-list div {
     grid-template-columns: 1fr;
   }
 
