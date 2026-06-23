@@ -47,7 +47,9 @@ https://lin30.github.io/craftorder-demo/
 
 备用 HTML 提交包：
 
-如在线链接访问异常，可使用本帖附件中的 `craftorder-demo-upload.zip`，解压后打开 `index.html` 体验完整 Demo。
+如在线链接访问异常，可下载 `craftorder-demo-upload.zip`，解压后打开 `index.html` 体验完整 Demo。
+
+https://lin30.github.io/craftorder-demo/craftorder-demo-upload.zip
 
 报名帖链接：
 
@@ -62,15 +64,15 @@ https://forum.trae.cn/t/topic/38895
 3. 使用 TRAE Work CN 复核初赛材料，包括体验链接、上传包、截图清单、报名帖链接和初赛作品帖结构，确保符合官方模板。
 4. 根据 TRAE Work CN 的复核意见继续清理新版页面，重点压缩说明性文案、占位文案和工具腔表达。
 
-关键步骤截图：
+关键步骤截图（如论坛外链预览不可见，可直接点击链接打开）：
 
-- `screenshots/desktop-studio.png`：接单流程、传承人工作台和可交付成果包。
-- `process-evidence/trae-cn-demo-verification.png`：TRAE 中国版跑通验证。
-- `process-evidence/trae-cn-creative-review.png`：TRAE 中国版创意定位复核。
-- `process-evidence/trae-cn-material-review.png`：TRAE 中国版初赛材料复核。
-- `process-evidence/trae-cn-copy-review.png`：新版页面清理后截图。
-- `screenshots/desktop-school.png`：学校研学课程方案。
-- `screenshots/desktop-booking.png`：游客预约页。
+- [接单流程、传承人工作台和可交付成果包](https://lin30.github.io/craftorder-demo/screenshots/desktop-studio.png)
+- [TRAE 中国版跑通验证](https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-demo-verification.png)
+- [TRAE 中国版创意定位复核](https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-creative-review.png)
+- [TRAE 中国版初赛材料复核](https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-material-review.png)
+- [新版页面清理后截图](https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-copy-review.png)
+- [学校研学课程方案](https://lin30.github.io/craftorder-demo/screenshots/desktop-school.png)
+- [游客预约页](https://lin30.github.io/craftorder-demo/screenshots/desktop-booking.png)
 
 Session ID：
 

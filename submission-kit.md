@@ -45,7 +45,7 @@
 
 公开体验链接：https://lin30.github.io/craftorder-demo/
 
-备用提交包：`craftorder-demo-upload.zip`。
+备用提交包：https://lin30.github.io/craftorder-demo/craftorder-demo-upload.zip
 
 ### 4. TRAE 实践过程
 

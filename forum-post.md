@@ -35,15 +35,25 @@ GitHub 仓库：
 
 https://github.com/lin30/craftorder-demo
 
+备用下载包：
+
+https://lin30.github.io/craftorder-demo/craftorder-demo-upload.zip
+
 报名帖链接：
 
 https://forum.trae.cn/t/topic/38895
 
-产品关键界面截图：
+产品关键界面截图（如论坛外链预览不可见，可直接点击图片链接打开）：
+
+[传承人工作台与接单流程](https://lin30.github.io/craftorder-demo/screenshots/desktop-studio.png)
 
 ![传承人工作台与接单流程](https://lin30.github.io/craftorder-demo/screenshots/desktop-studio.png)
 
+[学校研学课程方案](https://lin30.github.io/craftorder-demo/screenshots/desktop-school.png)
+
 ![学校研学课程方案](https://lin30.github.io/craftorder-demo/screenshots/desktop-school.png)
+
+[游客预约页](https://lin30.github.io/craftorder-demo/screenshots/desktop-booking.png)
 
 ![游客预约页](https://lin30.github.io/craftorder-demo/screenshots/desktop-booking.png)
 
