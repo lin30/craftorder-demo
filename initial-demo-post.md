@@ -60,7 +60,7 @@ https://forum.trae.cn/t/topic/38895
 1. 在 TRAE Work CN 中绑定 `craftorder-demo` 本地目录，验证静态 Demo 可运行、五个模块可交互、JS 语法检查通过，并确认 GitHub Pages 体验链接可访问。
 2. 使用 TRAE Work CN 复核“匠单 CraftOrder”的赛道匹配、差异化表达和获奖角度，确认主线聚焦非遗课程化、预约化和接单化。
 3. 使用 TRAE Work CN 复核初赛材料，包括体验链接、上传包、截图清单、报名帖链接和初赛作品帖结构，确保符合官方模板。
-4. 根据 TRAE Work CN 的复核意见继续清理新版页面，重点去掉评审口吻、占位文案和工具腔表达。
+4. 根据 TRAE Work CN 的复核意见继续清理新版页面，重点压缩说明性文案、占位文案和工具腔表达。
 
 关键步骤截图：
 

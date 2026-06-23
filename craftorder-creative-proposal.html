@@ -846,15 +846,25 @@ ol {
           <div class="media-grid">
             <article class="script-card">
               <p class="sheet-label">30 秒短视频脚本</p>
-              <div id="videoScript"></div>
+              <div id="videoScript">
+                <span>0-3 秒：展示一件剪纸成品，字幕“一门能被学校采购的非遗研学课”。</span>
+                <span>3-15 秒：输入城市、人数、材料成本，整理课程流程、学生任务卡和预约页。</span>
+                <span>15-30 秒：切到学生完成作品和成果墙，结尾提示“让手艺被看见，也被预约”。</span>
+              </div>
             </article>
             <article class="script-card">
               <p class="sheet-label">小红书标题</p>
-              <div id="socialTitles"></div>
+              <div id="socialTitles">
+                <span>把剪纸做成一节学校愿意采购的研学课</span>
+                <span>杭州周末亲子体验：剪纸作品可装裱带走</span>
+                <span>非遗传承人接研学课，先整理一套接单页</span>
+              </div>
             </article>
             <article class="script-card">
               <p class="sheet-label">研学合作话术</p>
-              <div id="partnerPitch"></div>
+              <div id="partnerPitch">
+                <span>您好，我们可以为小学三至五年级研学班提供 90 分钟剪纸研学课程。课程包含文化导入、材料认知、动手创作、成果展示四个环节，每场可接待 16 人，学生可带走作品，也可配合学校完成综合实践成果记录。单场报价约 ¥40-¥104/人，可按学校预算微调；如果方便，我们可以约 15 分钟电话或到工坊看一次材料。</span>
+              </div>
             </article>
           </div>
         </section>
@@ -1063,13 +1073,42 @@ function nodeList(items, tagName) {
   return items.map((item) => `<${tagName}>${item}</${tagName}>`).join("");
 }
 
+function getCityFactor(city) {
+  if (["北京", "上海", "深圳", "广州", "杭州"].some((item) => city.includes(item))) {
+    return 1.18;
+  }
+  if (["成都", "南京", "苏州", "武汉", "厦门", "西安", "长沙"].some((item) => city.includes(item))) {
+    return 1.08;
+  }
+  if (/[县乡镇]/.test(city)) {
+    return 0.88;
+  }
+  return 1;
+}
+
+function calculatePricing(state, audience) {
+  const cityFactor = getCityFactor(state.city);
+  const timeFactor = state.duration === 45 ? 0.78 : state.duration === 180 ? 1.65 : 1;
+  const capacity = Math.max(6, state.capacity || 16);
+  const material = Math.max(5, state.cost || 18);
+  const venue = Math.round(12 * cityFactor * timeFactor);
+  const labor = Math.round(Math.max(45, state.duration * 0.58) / capacity);
+  const equipment = state.duration === 180 ? 9 : 5;
+  const breakEven = material + venue + labor + equipment;
+  const marketAnchor = audience.priceBase * timeFactor * cityFactor;
+  const price = Math.max(marketAnchor, breakEven * 1.85);
+  const margin = Math.max(18, Math.round(((price - breakEven) / price) * 100));
+
+  return { price, margin, breakEven };
+}
+
 function renderPlan() {
   const state = readState();
   const profile = craftProfiles[state.craft];
   const audience = audienceMap[state.audience];
-  const timeFactor = state.duration === 45 ? 0.78 : state.duration === 180 ? 1.65 : 1;
-  const price = Math.max(audience.priceBase * timeFactor, state.cost * 3.6);
-  const margin = Math.max(18, Math.round(((price - state.cost) / price) * 100));
+  const pricing = calculatePricing(state, audience);
+  const price = pricing.price;
+  const margin = pricing.margin;
   const courseName = `${state.city}${profile.name}研学课：${profile.motif}的手作实验`;
 
   document.querySelector("#courseName").textContent = courseName;
@@ -1089,7 +1128,7 @@ function renderPlan() {
 
   document.querySelector("#corePlan").innerHTML = [
     ["课程包装", `面向${audience.label}，主打“${profile.motif}”主题，适配${audience.channel}。`],
-    ["经营约束", `每场上限 ${state.capacity} 人，材料成本约 ${currency(state.cost)}/人，建议定价 ${currency(price)}/人。`],
+    ["经营约束", `每场上限 ${state.capacity} 人，保本价约 ${currency(pricing.breakEven)}/人，建议定价 ${currency(price)}/人。`],
     ["可交付成果", `${profile.takeaway}，并整理出学生任务卡、老师备课提醒和短视频素材。`]
   ].map((item, index) => actionItem(item, index)).join("");
 
@@ -1116,7 +1155,7 @@ function renderPlan() {
   ].map((text) => `<span>${text}</span>`).join("");
 
   document.querySelector("#partnerPitch").innerHTML =
-    `<span>您好，我们可以为${audience.label}提供 ${state.duration} 分钟${profile.name}研学课程。课程包含文化导入、材料认知、动手创作、成果展示四个环节，每场可接待 ${state.capacity} 人，学生可带走作品，也可配合学校完成综合实践成果记录。单场报价约 ${currency(state.cost * 2.2)}-${currency(price)}/人，可按学校预算微调；如果方便，我们可以约 15 分钟电话或到工坊看一次材料。</span>`;
+    `<span>您好，我们可以为${audience.label}提供 ${state.duration} 分钟${profile.name}研学课程。课程包含文化导入、材料认知、动手创作、成果展示四个环节，每场可接待 ${state.capacity} 人，学生可带走作品，也可配合学校完成综合实践成果记录。单场报价约 ${currency(pricing.breakEven)}-${currency(price)}/人，可按学校预算微调；如果方便，我们可以约 15 分钟电话或到工坊看一次材料。</span>`;
 }
 
 function actionItem(item, index) {
