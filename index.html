@@ -91,6 +91,12 @@
             <button class="primary-action" id="generateBtn" type="button">生成方案</button>
           </div>
 
+          <div class="pain-strip" aria-label="真实痛点">
+            <span>不会写课程介绍</span>
+            <span>不知道怎么定价</span>
+            <span>难向学校说明采购价值</span>
+          </div>
+
           <div class="studio-grid">
             <form class="control-panel" id="craftForm">
               <label>
@@ -161,6 +167,24 @@
                 <div><span>毛利空间</span><b id="margin">约 82%</b></div>
                 <div><span>接待规模</span><b id="capacityOut">16 人/场</b></div>
               </div>
+              <div class="analysis-panel" id="analysisPanel" aria-live="polite">
+                <div>
+                  <p class="eyebrow">智能生成过程</p>
+                  <h4 id="analysisTitle">已根据课程结构与经营约束生成方案</h4>
+                </div>
+                <div class="analysis-steps" id="analysisSteps"></div>
+              </div>
+              <details class="pricing-breakdown" open>
+                <summary>定价测算详情</summary>
+                <dl>
+                  <div><dt>材料成本</dt><dd id="materialCost">¥18/人</dd></div>
+                  <div><dt>场地摊销</dt><dd id="venueCost">¥12/人</dd></div>
+                  <div><dt>人工摊销</dt><dd id="laborCost">¥6/人</dd></div>
+                  <div><dt>工具折旧</dt><dd id="equipmentCost">¥5/人</dd></div>
+                  <div><dt>城市系数</dt><dd id="cityFactorOut">1.00</dd></div>
+                  <div><dt>保本价</dt><dd id="breakEvenPrice">¥41/人</dd></div>
+                </dl>
+              </details>
               <div class="material-visual" aria-label="课程材料视觉预览">
                 <span></span><span></span><span></span><span></span>
               </div>
@@ -253,6 +277,33 @@
               <span id="bookingPeople">6-16 人成团</span>
               <span id="bookingTakeaway">作品可带走</span>
             </div>
+            <form class="booking-form" id="bookingForm">
+              <label>
+                <span>体验日期</span>
+                <select id="bookingDate">
+                  <option value="本周六">本周六</option>
+                  <option value="本周日">本周日</option>
+                  <option value="下周六">下周六</option>
+                </select>
+              </label>
+              <label>
+                <span>时间段</span>
+                <select id="bookingSlot">
+                  <option value="10:00-11:30">10:00-11:30</option>
+                  <option value="14:00-15:30">14:00-15:30</option>
+                  <option value="16:00-17:30">16:00-17:30</option>
+                </select>
+              </label>
+              <label>
+                <span>联系人</span>
+                <input id="bookingContact" value="研学老师" maxlength="12" />
+              </label>
+              <label>
+                <span>联系电话</span>
+                <input id="bookingPhone" value="13800000000" maxlength="16" />
+              </label>
+              <button class="copy-action" type="submit">确认预约</button>
+            </form>
             <div class="order-confirm" id="reserveState">预约页已生成，等待游客选择时间。</div>
           </div>
         </section>

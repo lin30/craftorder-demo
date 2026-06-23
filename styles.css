@@ -364,6 +364,26 @@ h4 {
   gap: 22px;
 }
 
+.pain-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: -2px 0 20px;
+}
+
+.pain-strip span {
+  min-height: 46px;
+  display: grid;
+  place-items: center;
+  padding: 10px;
+  border: 1px solid rgba(168, 63, 53, 0.28);
+  border-radius: 6px;
+  background: rgba(168, 63, 53, 0.08);
+  color: #84342c;
+  text-align: center;
+  font-weight: 700;
+}
+
 .control-panel,
 .output-board,
 .lesson-sheet,
@@ -490,6 +510,75 @@ button:focus-visible {
 .note-list {
   display: grid;
   gap: 10px;
+}
+
+.analysis-panel,
+.pricing-breakdown {
+  padding: 16px;
+  border: 1px solid rgba(49, 92, 131, 0.24);
+  border-radius: 8px;
+  background: #f3eadc;
+}
+
+.analysis-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.analysis-panel h4 {
+  margin: 0;
+  font-family: "Songti SC", "Noto Serif CJK SC", serif;
+  font-size: 19px;
+}
+
+.analysis-panel.is-running {
+  border-color: rgba(46, 109, 98, 0.55);
+  background:
+    linear-gradient(90deg, rgba(46, 109, 98, 0.14), rgba(229, 193, 107, 0.16)),
+    #fff8e8;
+}
+
+.analysis-steps {
+  display: grid;
+  gap: 8px;
+}
+
+.analysis-steps .action-item {
+  padding: 11px;
+  background: rgba(255, 250, 241, 0.82);
+}
+
+.pricing-breakdown summary {
+  cursor: pointer;
+  color: var(--green);
+  font-weight: 800;
+}
+
+.pricing-breakdown dl {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 14px 0 0;
+}
+
+.pricing-breakdown div {
+  min-height: 70px;
+  padding: 12px;
+  border: 1px solid rgba(37, 34, 29, 0.12);
+  border-radius: 6px;
+  background: rgba(255, 250, 241, 0.82);
+}
+
+.pricing-breakdown dt {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.pricing-breakdown dd {
+  margin: 6px 0 0;
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 800;
 }
 
 .deliverable-panel {
@@ -668,6 +757,21 @@ ol {
   background: #f2e6d5;
 }
 
+.booking-form {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) auto;
+  gap: 12px;
+  align-items: end;
+  padding: 18px;
+  background: #fff8e8;
+  border-top: 1px solid var(--line);
+}
+
+.booking-form .copy-action {
+  min-height: 44px;
+  white-space: nowrap;
+}
+
 .order-confirm.is-done {
   color: #fff8e8;
   background: var(--green);
@@ -744,7 +848,8 @@ ol {
   .studio-grid,
   .learning-layout,
   .media-grid,
-  .evidence-grid {
+  .evidence-grid,
+  .booking-form {
     grid-template-columns: 1fr;
   }
 
@@ -781,8 +886,10 @@ ol {
   .walkthrough,
   .metrics,
   .two-col,
+  .pain-strip,
   .booking-details,
-  .deliverable-list div {
+  .deliverable-list div,
+  .pricing-breakdown dl {
     grid-template-columns: 1fr;
   }
 
