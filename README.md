@@ -36,3 +36,10 @@
 - 传播素材页。
 - 政策与真实场景依据页。
 - TRAE 开发过程关键提示词、输出结果和中国版 TRAE 复核意见。
+
+正式提交图片请只引用以下稳定目录，避免使用临时预览图：
+
+- 产品截图：`screenshots/desktop-studio.png`、`screenshots/desktop-school.png`、`screenshots/desktop-booking.png`。
+- 过程截图：`process-evidence/trae-cn-demo-verification.png`、`process-evidence/trae-cn-creative-review.png`、`process-evidence/trae-cn-material-review.png`、`process-evidence/trae-cn-copy-review.png`。
+
+备用提交包 `craftorder-demo-upload.zip` 已控制在社区 20MB 文件限制内，包含 Demo 源码、正式截图和 TRAE 过程证据。

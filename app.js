@@ -146,15 +146,60 @@ const audienceMap = {
   team: { label: "公司团建", channel: "企业文化团建", priceBase: 168 }
 };
 
+const goalMap = {
+  stable: {
+    label: "学校订单优先",
+    proof: "稳定接学校订单",
+    pricing: "预算友好、复购优先",
+    priceMultiplier: 0.98,
+    marginMultiplier: 1.82,
+    laborMultiplier: 1,
+    buyerReason: "强调教学目标、课堂秩序、成果可验收和复购稳定性。",
+    opsResult: "适合先做 8-16 人标准课，保留学校批量采购空间。",
+    mediaAngle: "把一门手艺做成老师能直接采购的综合实践课",
+    partnerAsk: "可先提供一场试课，再按年级或班级批量排期。"
+  },
+  tourism: {
+    label: "文旅街区优先",
+    proof: "进入文旅街区",
+    pricing: "高客单、强展示",
+    priceMultiplier: 1.16,
+    marginMultiplier: 2.08,
+    laborMultiplier: 1.14,
+    buyerReason: "突出到店体验、拍照传播、游客停留时长和街区活动转化。",
+    opsResult: "适合周末固定档期，单场人数可略低但客单价更高。",
+    mediaAngle: "在城市街区预约一场能带走作品的手艺体验",
+    partnerAsk: "可与街区活动、亲子市集或城市漫游路线联动。"
+  },
+  gift: {
+    label: "材料包转化优先",
+    proof: "带动文创材料包",
+    pricing: "作品包、复购加价",
+    priceMultiplier: 1.08,
+    marginMultiplier: 1.96,
+    laborMultiplier: 1.08,
+    buyerReason: "把课程成果延伸成材料包、伴手礼和节日复购。",
+    opsResult: "适合把单场体验转成材料包预售或团购订单。",
+    mediaAngle: "做完一节体验课，还能把材料包带回家继续创作",
+    partnerAsk: "可同步准备材料包清单，用课程带动后续购买。"
+  }
+};
+
 const form = document.querySelector("#craftForm");
 const bookingForm = document.querySelector("#bookingForm");
 const planButton = document.querySelector("#planButton");
 const navButtons = document.querySelectorAll(".nav-button");
 const quickSlotButton = document.querySelector("#quickSlotButton");
 const copyButton = document.querySelector("#copySummary");
+const handoffTitle = document.querySelector("#handoffTitle");
+const handoffStepItems = document.querySelectorAll("#handoffSteps li");
+const heroProofCourse = document.querySelector("#heroProofCourse");
+const heroProofGoal = document.querySelector("#heroProofGoal");
+const toast = document.querySelector("#toast");
 
 let latestSummary = "";
-let organizeTimer = null;
+let organizeTimers = [];
+let toastTimer = null;
 
 function currency(value) {
   return `¥${Math.round(value)}`;
@@ -191,30 +236,37 @@ function getCityFactor(city) {
 
 function calculatePricing(state, audience) {
   const cityFactor = getCityFactor(state.city);
+  const goal = goalMap[state.goal];
   const timeFactor = state.duration === 45 ? 0.78 : state.duration === 180 ? 1.65 : 1;
   const capacity = Math.max(6, state.capacity || 16);
   const material = Math.max(5, state.cost || 18);
-  const venue = Math.round(12 * cityFactor * timeFactor);
-  const labor = Math.round(Math.max(45, state.duration * 0.58) / capacity);
-  const equipment = state.duration === 180 ? 9 : 5;
+  const venue = Math.round((state.duration === 180 ? 360 : 190) * cityFactor * timeFactor / capacity);
+  const assistantFee = capacity > 18 || state.duration === 180 ? 120 * timeFactor : 0;
+  const facilitatorFee = (state.duration === 45 ? 180 : state.duration === 180 ? 520 : 320) * goal.laborMultiplier;
+  const labor = Math.round((facilitatorFee + assistantFee) / capacity);
+  const equipment = state.duration === 180 ? 14 : state.duration === 45 ? 4 : 7;
   const breakEven = material + venue + labor + equipment;
-  const marketAnchor = audience.priceBase * timeFactor * cityFactor;
-  const price = Math.max(marketAnchor, breakEven * 1.85);
+  const marketAnchor = audience.priceBase * timeFactor * cityFactor * goal.priceMultiplier;
+  const price = Math.ceil(Math.max(marketAnchor, breakEven * goal.marginMultiplier) / 5) * 5;
   const margin = Math.max(18, Math.round(((price - breakEven) / price) * 100));
+  const laborPlan = capacity > 18 || state.duration === 180 ? "主讲 1 人 + 助教 1 人" : "主讲 1 人";
 
-  return { price, margin, material, venue, labor, equipment, breakEven, cityFactor, timeFactor };
+  return { price, margin, material, venue, labor, equipment, breakEven, cityFactor, timeFactor, laborPlan };
 }
 
 function renderPlan() {
   const state = readState();
   const profile = craftProfiles[state.craft];
   const audience = audienceMap[state.audience];
+  const goal = goalMap[state.goal];
   const pricing = calculatePricing(state, audience);
   const price = pricing.price;
   const margin = pricing.margin;
   const courseName = `${state.city}${profile.name}研学课：${profile.motif}的手作实验`;
 
   document.querySelector("#courseName").textContent = courseName;
+  heroProofCourse.textContent = `${state.city}${profile.name} / ${state.duration} 分钟 / ${state.capacity} 人`;
+  heroProofGoal.textContent = goal.label;
   document.querySelector("#price").textContent = `${currency(price)}/人`;
   document.querySelector("#margin").textContent = `约 ${margin}%`;
   document.querySelector("#capacityOut").textContent = `${state.capacity} 人/场`;
@@ -222,7 +274,9 @@ function renderPlan() {
   document.querySelector("#venueCost").textContent = `${currency(pricing.venue)}/人`;
   document.querySelector("#laborCost").textContent = `${currency(pricing.labor)}/人`;
   document.querySelector("#equipmentCost").textContent = `${currency(pricing.equipment)}/人`;
+  document.querySelector("#laborPlan").textContent = pricing.laborPlan;
   document.querySelector("#cityFactorOut").textContent = pricing.cityFactor.toFixed(2);
+  document.querySelector("#goalStrategy").textContent = goal.pricing;
   document.querySelector("#breakEvenPrice").textContent = `${currency(pricing.breakEven)}/人`;
   document.querySelector("#lessonTitle").textContent = `${profile.name}非遗研学：从观察到完成一件作品`;
   document.querySelector("#taskTitle").textContent = `${profile.name}学生任务卡`;
@@ -235,9 +289,9 @@ function renderPlan() {
   document.querySelector("#bookingIntro").textContent =
     `面向${audience.label}，在${state.city}工坊完成一件${profile.name}作品，课程包含文化导入、材料认知、动手创作和成果讲述。`;
 
-  const deliveryCourse = `${state.city}${profile.name}研学课，面向${audience.label}，主打${profile.motif}主题。`;
-  const deliveryBuyer = `可交付教学目标、${state.duration}分钟流程、学生任务卡、老师备课提醒和成果展示建议。`;
-  const deliveryOps = `${state.capacity}人/场，建议价${currency(price)}/人，材料成本约${currency(state.cost)}/人，毛利空间约${margin}%。`;
+  const deliveryCourse = `${state.city}${profile.name}研学课，面向${audience.label}，主打${profile.motif}主题，目标是${goal.proof}。`;
+  const deliveryBuyer = `可交付教学目标、${state.duration}分钟流程、学生任务卡、老师备课提醒和成果展示建议；${goal.buyerReason}`;
+  const deliveryOps = `${state.capacity}人/场，${pricing.laborPlan}，建议价${currency(price)}/人，材料成本约${currency(state.cost)}/人，毛利空间约${margin}%；${goal.opsResult}`;
 
   document.querySelector("#deliveryTitle").textContent = `${profile.name}课程成果包已整理`;
   document.querySelector("#deliveryCourse").textContent = deliveryCourse;
@@ -250,13 +304,14 @@ function renderPlan() {
     `采购理由：${deliveryBuyer}`,
     `经营测算：${deliveryOps} 保本价约${currency(pricing.breakEven)}/人，城市系数${pricing.cityFactor.toFixed(2)}。`,
     `预约页：${profile.takeaway}，${profile.age}，6-${state.capacity}人成团。`,
-    `传播标题：把${profile.name}做成一节学校愿意采购的研学课`
+    `传播标题：${goal.mediaAngle}`
   ].join("\n");
 
   document.querySelector("#corePlan").innerHTML = [
     ["课程包装", `面向${audience.label}，主打“${profile.motif}”主题，适配${audience.channel}。`],
-    ["经营约束", `每场上限 ${state.capacity} 人，保本价约 ${currency(pricing.breakEven)}/人，建议定价 ${currency(price)}/人。`],
-    ["可交付成果", `${profile.takeaway}，并整理出学生任务卡、老师备课提醒和短视频素材。`]
+    ["经营目标", `${goal.label}：${goal.buyerReason}`],
+    ["报价边界", `每场上限 ${state.capacity} 人，${pricing.laborPlan}，保本价约 ${currency(pricing.breakEven)}/人，建议定价 ${currency(price)}/人。`],
+    ["可交付成果", `${profile.takeaway}，并整理出学生任务卡、老师备课提醒和${goal.proof}话术。`]
   ].map((item, index) => actionItem(item, index)).join("");
 
   document.querySelector("#objectives").innerHTML = nodeList(profile.objectives, "li");
@@ -270,28 +325,31 @@ function renderPlan() {
   });
 
   document.querySelector("#videoScript").innerHTML = [
-    `0-3 秒：展示一件${profile.name}成品，字幕“一门能被学校采购的非遗研学课”。`,
-    `3-15 秒：输入城市、人数、材料成本，整理课程流程、学生任务卡和预约页。`,
-    `15-30 秒：切到学生完成作品和成果墙，结尾提示“让手艺被看见，也被预约”。`
+    `0-3 秒：展示一件${profile.name}成品，字幕“${goal.mediaAngle}”。`,
+    `3-15 秒：输入城市、人数、材料成本和经营目标，生成课程流程、报价和预约页。`,
+    `15-30 秒：切到学生完成作品和成果墙，结尾提示“${goal.partnerAsk}”。`
   ].map((text) => `<span>${text}</span>`).join("");
 
   document.querySelector("#socialTitles").innerHTML = [
-    `把${profile.name}做成一节学校愿意采购的研学课`,
+    goal.mediaAngle,
     `${state.city}周末亲子体验：${profile.takeaway}`,
-    `非遗传承人接研学课，先整理一套接单页`
+    `${profile.name}传承人接单前，先把报价和预约页算清楚`
   ].map((text) => `<span>${text}</span>`).join("");
 
   document.querySelector("#partnerPitch").innerHTML =
-    `<span>您好，我们可以为${audience.label}提供 ${state.duration} 分钟${profile.name}研学课程。课程包含文化导入、材料认知、动手创作、成果展示四个环节，每场可接待 ${state.capacity} 人，学生可带走作品，也可配合学校完成综合实践成果记录。单场报价约 ${currency(pricing.breakEven)}-${currency(pricing.price)}/人，可按学校预算微调；如果方便，我们可以约 15 分钟电话或到工坊看一次材料。</span>`;
+    `<span>您好，我们可以为${audience.label}提供 ${state.duration} 分钟${profile.name}研学课程。课程包含文化导入、材料认知、动手创作、成果展示四个环节，每场可接待 ${state.capacity} 人，${pricing.laborPlan}。本场保本价约 ${currency(pricing.breakEven)}/人，建议报价 ${currency(pricing.price)}/人；${goal.partnerAsk} 如果方便，我们可以约 15 分钟电话或到工坊看一次材料。</span>`;
+  setFlowState("price", "课程与报价已更新");
 }
 
 function renderAnalysisSteps(state, profile, audience, pricing) {
+  const goal = goalMap[state.goal];
   document.querySelector("#analysisTitle").textContent = "已整理课程结构与经营约束";
   document.querySelector("#analysisPanel").classList.remove("is-running");
   document.querySelector("#analysisSteps").innerHTML = [
     ["拆技艺", `${profile.name} 的主题是“${profile.motif}”，适合做成${state.duration}分钟课程。`],
     ["对齐采购", `${audience.label}需要教学目标、成果展示和安全提醒。`],
-    ["核算价格", `材料、场地、人工和工具折旧合计，保本价约${currency(pricing.breakEven)}/人。`]
+    ["匹配目标", `${goal.label}会影响报价倍率、传播角度和合作话术。`],
+    ["核算价格", `材料、场地、${pricing.laborPlan}和工具折旧合计，保本价约${currency(pricing.breakEven)}/人。`]
   ].map((item, index) => actionItem(item, index)).join("");
 }
 
@@ -300,21 +358,109 @@ function organizePlan() {
   const analysisTitle = document.querySelector("#analysisTitle");
   const analysisSteps = document.querySelector("#analysisSteps");
 
-  window.clearTimeout(organizeTimer);
+  organizeTimers.forEach((timer) => window.clearTimeout(timer));
+  organizeTimers = [];
+  setPlanButtonBusy(true);
+  setFlowState("price", "正在整理方案");
   analysisPanel.classList.add("is-running");
-  analysisTitle.textContent = "正在整理课程结构、成本和预约信息";
-  analysisSteps.innerHTML = [
-    ["读取参数", "识别项目、城市、客群、课时、人数和材料成本。"],
-    ["整理课程", "组合课程目标、学生任务卡、老师备课提醒和传播素材。"],
-    ["核算报价", "拆解材料、场地、人工、工具折旧和城市消费系数。"]
-  ].map((item, index) => actionItem(item, index)).join("");
+  analysisTitle.textContent = "正在推演课程、成本和接单话术";
 
-  organizeTimer = window.setTimeout(renderPlan, 900);
+  const runningSteps = [
+    ["读取经营条件", "识别项目、城市、客群、课时、人数、材料成本和经营目标。"],
+    ["拆成可采购课程", "生成教学目标、课堂流程、任务卡和安全提醒。"],
+    ["核算接单价格", "按师资、场地、工具折旧、城市系数和经营目标给出报价。"],
+    ["整理交付文本", "同步更新预约页、传播标题和合作话术。"]
+  ];
+
+  const renderRunning = (activeIndex) => {
+    analysisSteps.innerHTML = runningSteps
+      .map((item, index) => {
+        const status = index < activeIndex ? "is-done" : index === activeIndex ? "is-active" : "";
+        return actionItem([...item, status], index);
+      })
+      .join("");
+  };
+
+  renderRunning(0);
+  [1, 2, 3].forEach((step, index) => {
+    organizeTimers.push(window.setTimeout(() => renderRunning(step), 420 * (index + 1)));
+  });
+
+  organizeTimers.push(window.setTimeout(() => {
+    renderPlan();
+    setPlanButtonBusy(false);
+    showToast("方案已整理完成");
+  }, 1680));
+}
+
+function setPlanButtonBusy(isBusy) {
+  planButton.classList.toggle("is-loading", isBusy);
+  planButton.textContent = isBusy ? "推演中" : "整理方案";
+  planButton.setAttribute("aria-busy", String(isBusy));
+}
+
+function setFlowState(stage, title) {
+  const order = ["course", "price", "reserve", "copy"];
+  const activeIndex = Math.max(0, order.indexOf(stage));
+
+  handoffTitle.textContent = title;
+  handoffStepItems.forEach((item, index) => {
+    item.classList.toggle("is-done", index < activeIndex || stage === "copy");
+    item.classList.toggle("is-active", index === activeIndex);
+    item.toggleAttribute("aria-current", index === activeIndex);
+  });
+}
+
+function setFlowForView(viewId) {
+  const viewFlowMap = {
+    studio: ["price", "正在查看报价与接单测算"],
+    school: ["course", "正在查看研学课程包"],
+    booking: ["reserve", "正在查看预约页"],
+    media: ["copy", "正在查看传播交付包"]
+  };
+  const flow = viewFlowMap[viewId];
+  if (flow) {
+    setFlowState(flow[0], flow[1]);
+  }
+}
+
+function showToast(message) {
+  window.clearTimeout(toastTimer);
+  toast.textContent = message;
+  toast.classList.add("is-visible");
+  toastTimer = window.setTimeout(() => {
+    toast.classList.remove("is-visible");
+  }, 2100);
+}
+
+async function copyText(text) {
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return;
+    } catch {
+      // Fall back for preview browsers that block Clipboard API on permission grounds.
+    }
+  }
+
+  const field = document.createElement("textarea");
+  field.value = text;
+  field.setAttribute("readonly", "");
+  field.style.position = "fixed";
+  field.style.opacity = "0";
+  document.body.append(field);
+  field.select();
+  const copied = document.execCommand("copy");
+  field.remove();
+
+  if (!copied) {
+    throw new Error("copy unavailable");
+  }
 }
 
 function actionItem(item, index) {
   return `
-    <div class="action-item">
+    <div class="action-item ${item[2] || ""}">
       <span class="index-chip">${String(index + 1).padStart(2, "0")}</span>
       <div>
         <strong>${item[0]}</strong>
@@ -351,13 +497,15 @@ function buildTimeline(state, profile) {
   ];
 }
 
+function switchView(viewId) {
+  navButtons.forEach((item) => item.classList.toggle("is-active", item.dataset.view === viewId));
+  document.querySelectorAll(".view").forEach((view) => view.classList.remove("is-visible"));
+  document.querySelector(`#${viewId}`).classList.add("is-visible");
+  setFlowForView(viewId);
+}
+
 navButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    navButtons.forEach((item) => item.classList.remove("is-active"));
-    button.classList.add("is-active");
-    document.querySelectorAll(".view").forEach((view) => view.classList.remove("is-visible"));
-    document.querySelector(`#${button.dataset.view}`).classList.add("is-visible");
-  });
+  button.addEventListener("click", () => switchView(button.dataset.view));
 });
 
 form.addEventListener("input", renderPlan);
@@ -368,6 +516,8 @@ quickSlotButton.addEventListener("click", () => {
   document.querySelector("#reserveState").textContent =
     "已选本周六 14:00-15:30，请补充联系人和联系电话后确认预约。";
   document.querySelector("#reserveState").classList.remove("is-done");
+  setFlowState("reserve", "预约时段已选择");
+  showToast("已带入周六下午档期");
 });
 
 bookingForm.addEventListener("submit", (event) => {
@@ -387,22 +537,29 @@ function confirmBooking() {
   if (!contact || !phone) {
     reserveState.textContent = "请先补全联系人和联系电话，方便传承人确认材料和到场人数。";
     reserveState.classList.remove("is-done");
+    showToast("还缺联系人或电话");
     return;
   }
 
   reserveState.textContent =
     `预约成功：${contact} 已预约 ${date} ${slot} 的${profile.name}体验，联系电话 ${phone}。传承人将在 24 小时内确认材料与到场人数。`;
   reserveState.classList.add("is-done");
+  setFlowState("reserve", "预约记录已确认");
+  showToast("预约记录已生成");
 }
 
 copyButton.addEventListener("click", async () => {
   const originalText = copyButton.textContent;
 
   try {
-    await navigator.clipboard.writeText(latestSummary);
+    await copyText(latestSummary);
     copyButton.textContent = "已复制成果包";
+    setFlowState("copy", "成果包已复制");
+    showToast("成果包已复制到剪贴板");
   } catch {
     copyButton.textContent = "已整理成果包";
+    setFlowState("copy", "成果包已整理");
+    showToast("成果包已整理完成");
   }
 
   window.setTimeout(() => {

@@ -116,13 +116,31 @@
 - 游客端：城市非遗体验地图、预约管理、活动提醒。
 - 机构端：活动数据看板、课程复购率、地区非遗资源盘点。
 
+## 官方要求对齐
+
+官网初赛作品帖需要同时覆盖这 4 件事：
+
+- Demo 简介：说明是什么、面向谁、主要功能。
+- Demo 创作思路：说明灵感来源、真实痛点和方向取舍。
+- Demo 体验地址：公开体验链接，或上传可交互 HTML/Zip。
+- TRAE 实践过程：开发关键步骤截图不少于 3 张，关键任务 Session ID 不少于 3 个，并附通过的报名帖链接。
+
+当前材料对应关系：
+
+- 公开体验链接：https://lin30.github.io/craftorder-demo/
+- 备用提交包：https://lin30.github.io/craftorder-demo/craftorder-demo-upload.zip
+- 报名帖链接：https://forum.trae.cn/t/topic/38895
+- 产品截图：`screenshots/desktop-studio.png`、`screenshots/desktop-school.png`、`screenshots/desktop-booking.png`。
+- 过程截图：`process-evidence/trae-cn-demo-verification.png`、`process-evidence/trae-cn-creative-review.png`、`process-evidence/trae-cn-material-review.png`、`process-evidence/trae-cn-copy-review.png`。
+- Session ID：已准备 3 条中国版 TRAE Work CN 关键任务 Session ID。
+
 ## 提交检查表
 
-- [ ] 报名帖已通过。
-- [ ] Demo 与报名创意方向一致。
-- [ ] Demo 可公开访问，或已打包 HTML zip。
-- [ ] 社区初赛帖包含 Demo 简介、创作思路、体验地址和 TRAE 实践过程。
-- [ ] 关键步骤截图不少于 3 张。
-- [ ] 关键任务 Session ID 不少于 3 个。
-- [ ] 帖子附上报名帖链接。
-- [ ] 抖音视频带官方话题并 @TRAE @抖音科技。
+- [x] 报名帖已通过。
+- [x] Demo 与报名创意方向一致。
+- [x] Demo 可公开访问，并已打包备用 HTML zip。
+- [x] 社区初赛帖包含 Demo 简介、创作思路、体验地址和 TRAE 实践过程。
+- [x] 关键步骤截图不少于 3 张。
+- [x] 关键任务 Session ID 不少于 3 个。
+- [x] 帖子附上报名帖链接。
+- [ ] 抖音视频带官方话题 `#vibecoding大赏`、`#traeai创造力大赛`，并 @TRAE @抖音科技。

@@ -38,11 +38,21 @@
             <p class="eyebrow">从手艺到可采购课程</p>
             <h1>把一门非遗技艺，变成学校可采购、学生可体验、游客可预约的研学产品。</h1>
           </div>
-          <div class="stats-strip" aria-label="核心能力概览">
-            <span><b>4步</b>成课</span>
-            <span><b>1页</b>预约</span>
-            <span><b>3类</b>素材</span>
-            <span><b>6项</b>技艺</span>
+          <div class="hero-side">
+            <aside class="hero-proof" aria-label="研学接单成果预览">
+              <span class="proof-seal">可预约</span>
+              <p>接单凭证预览</p>
+              <strong id="heroProofCourse">杭州剪纸 / 90 分钟 / 16 人</strong>
+              <div class="proof-meta">
+                <span id="heroProofGoal">学校订单优先</span>
+                <span>课程包 + 报价单 + 预约页</span>
+              </div>
+              <div class="proof-steps">
+                <span>课程包</span>
+                <span>报价单</span>
+                <span>预约页</span>
+              </div>
+            </aside>
           </div>
         </header>
 
@@ -80,6 +90,19 @@
             <span>03 确认预约信息</span>
             <span>04 复制交付文本</span>
           </div>
+        </section>
+
+        <section class="handoff-strip" aria-label="交付状态">
+          <div>
+            <span>当前交付</span>
+            <strong id="handoffTitle">课程包已生成</strong>
+          </div>
+          <ol class="handoff-steps" id="handoffSteps">
+            <li data-stage="course" class="is-done">课程</li>
+            <li data-stage="price" class="is-active">报价</li>
+            <li data-stage="reserve">预约</li>
+            <li data-stage="copy">交付</li>
+          </ol>
         </section>
 
         <section class="view is-visible" id="studio" aria-labelledby="studio-title">
@@ -181,7 +204,9 @@
                   <div><dt>场地摊销</dt><dd id="venueCost">¥12/人</dd></div>
                   <div><dt>人工摊销</dt><dd id="laborCost">¥6/人</dd></div>
                   <div><dt>工具折旧</dt><dd id="equipmentCost">¥5/人</dd></div>
+                  <div><dt>师资配置</dt><dd id="laborPlan">主讲 1 人</dd></div>
                   <div><dt>城市系数</dt><dd id="cityFactorOut">1.00</dd></div>
+                  <div><dt>经营目标</dt><dd id="goalStrategy">学校订单</dd></div>
                   <div><dt>保本价</dt><dd id="breakEvenPrice">¥41/人</dd></div>
                 </dl>
               </details>
@@ -373,6 +398,7 @@
       </section>
     </main>
 
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <script src="./app.js"></script>
   </body>
 </html>
