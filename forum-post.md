@@ -37,7 +37,7 @@ https://github.com/lin30/craftorder-demo
 
 备用下载包：
 
-https://lin30.github.io/craftorder-demo/craftorder-demo-upload.zip?v=8a213c1
+https://lin30.github.io/craftorder-demo/craftorder-demo-upload.zip?v=05e283c
 
 报名帖链接：
 
@@ -47,21 +47,21 @@ https://forum.trae.cn/t/topic/38895
 
 传承人工作台与接单流程：
 
-https://lin30.github.io/craftorder-demo/screenshots/desktop-studio.png?v=8a213c1
+https://lin30.github.io/craftorder-demo/screenshots/desktop-studio.png?v=05e283c
 
-<img src="https://lin30.github.io/craftorder-demo/screenshots/desktop-studio.png?v=8a213c1" alt="传承人工作台与接单流程" width="900">
+<img src="https://lin30.github.io/craftorder-demo/screenshots/desktop-studio.png?v=05e283c" alt="传承人工作台与接单流程" width="900">
 
 学校研学课程方案：
 
-https://lin30.github.io/craftorder-demo/screenshots/desktop-school.png?v=8a213c1
+https://lin30.github.io/craftorder-demo/screenshots/desktop-school.png?v=05e283c
 
-<img src="https://lin30.github.io/craftorder-demo/screenshots/desktop-school.png?v=8a213c1" alt="学校研学课程方案" width="900">
+<img src="https://lin30.github.io/craftorder-demo/screenshots/desktop-school.png?v=05e283c" alt="学校研学课程方案" width="900">
 
 游客预约页：
 
-https://lin30.github.io/craftorder-demo/screenshots/desktop-booking.png?v=8a213c1
+https://lin30.github.io/craftorder-demo/screenshots/desktop-booking.png?v=05e283c
 
-<img src="https://lin30.github.io/craftorder-demo/screenshots/desktop-booking.png?v=8a213c1" alt="游客预约页" width="900">
+<img src="https://lin30.github.io/craftorder-demo/screenshots/desktop-booking.png?v=05e283c" alt="游客预约页" width="900">
 
 ### 4. TRAE 实践过程
 
