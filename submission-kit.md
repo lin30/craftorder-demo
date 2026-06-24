@@ -123,7 +123,7 @@
 - Demo 简介：说明是什么、面向谁、主要功能。
 - Demo 创作思路：说明灵感来源、真实痛点和方向取舍。
 - Demo 体验地址：公开体验链接，或上传可交互 HTML/Zip。
-- TRAE 实践过程：开发关键步骤截图不少于 3 张，关键任务 Session ID 不少于 3 个，并附通过的报名帖链接。
+- TRAE 实践过程：作品关键步骤截图不少于 3 张，关键任务 Session ID 不少于 3 个，并附通过的报名帖链接。
 
 当前材料对应关系：
 
@@ -131,7 +131,6 @@
 - 备用提交包：https://lin30.github.io/craftorder-demo/craftorder-demo-upload.zip
 - 报名帖链接：https://forum.trae.cn/t/topic/38895
 - 产品截图：`screenshots/desktop-studio.png`、`screenshots/desktop-school.png`、`screenshots/desktop-booking.png`。
-- 过程截图：`process-evidence/trae-cn-demo-verification.png`、`process-evidence/trae-cn-creative-review.png`、`process-evidence/trae-cn-material-review.png`、`process-evidence/trae-cn-copy-review.png`。
 - Session ID：已准备 3 条中国版 TRAE Work CN 关键任务 Session ID。
 
 ## 提交检查表

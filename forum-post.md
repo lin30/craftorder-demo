@@ -73,32 +73,6 @@ https://lin30.github.io/craftorder-demo/screenshots/desktop-booking.png?v=8a213c
 4. 根据 TRAE Work CN 的复核意见继续清理新版页面，重点压缩说明性文案、占位文案和工具腔表达。
 5. 继续修复经营目标、报价测算、整理方案反馈、阶段条高亮和依据库进度关系，确保评委可以直接操作核心闭环。
 
-关键步骤截图：
-
-TRAE 中国版跑通验证：
-
-https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-demo-verification.png?v=8a213c1
-
-<img src="https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-demo-verification.png?v=8a213c1" alt="TRAE 中国版跑通验证" width="900">
-
-TRAE 中国版创意定位复核：
-
-https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-creative-review.png?v=8a213c1
-
-<img src="https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-creative-review.png?v=8a213c1" alt="TRAE 中国版创意定位复核" width="900">
-
-TRAE 中国版初赛材料复核：
-
-https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-material-review.png?v=8a213c1
-
-<img src="https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-material-review.png?v=8a213c1" alt="TRAE 中国版初赛材料复核" width="900">
-
-新版页面清理后截图：
-
-https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-copy-review.png?v=8a213c1
-
-<img src="https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-copy-review.png?v=8a213c1" alt="新版页面清理后截图" width="900">
-
 Session ID：
 
 Session ID 1：`309385543574250:dbebdd826c9575bcd3c1a14278696c32_6a38af5a0ef973d9fca7678e.6a38af5a0ef973d9fca76791.6a38af5a0ef973d9fca7678f:TRAE Work CN.0.1.20.no_sid.no_ppe.T(2026/6/22 11:43:22)`  
