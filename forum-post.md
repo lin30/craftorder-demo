@@ -37,7 +37,7 @@ https://github.com/lin30/craftorder-demo
 
 备用下载包：
 
-https://lin30.github.io/craftorder-demo/craftorder-demo-upload.zip
+https://lin30.github.io/craftorder-demo/craftorder-demo-upload.zip?v=8a213c1
 
 报名帖链接：
 
@@ -47,21 +47,21 @@ https://forum.trae.cn/t/topic/38895
 
 传承人工作台与接单流程：
 
-https://lin30.github.io/craftorder-demo/screenshots/desktop-studio.png
+https://lin30.github.io/craftorder-demo/screenshots/desktop-studio.png?v=8a213c1
 
-<img src="https://lin30.github.io/craftorder-demo/screenshots/desktop-studio.png" alt="传承人工作台与接单流程" width="900">
+<img src="https://lin30.github.io/craftorder-demo/screenshots/desktop-studio.png?v=8a213c1" alt="传承人工作台与接单流程" width="900">
 
 学校研学课程方案：
 
-https://lin30.github.io/craftorder-demo/screenshots/desktop-school.png
+https://lin30.github.io/craftorder-demo/screenshots/desktop-school.png?v=8a213c1
 
-<img src="https://lin30.github.io/craftorder-demo/screenshots/desktop-school.png" alt="学校研学课程方案" width="900">
+<img src="https://lin30.github.io/craftorder-demo/screenshots/desktop-school.png?v=8a213c1" alt="学校研学课程方案" width="900">
 
 游客预约页：
 
-https://lin30.github.io/craftorder-demo/screenshots/desktop-booking.png
+https://lin30.github.io/craftorder-demo/screenshots/desktop-booking.png?v=8a213c1
 
-<img src="https://lin30.github.io/craftorder-demo/screenshots/desktop-booking.png" alt="游客预约页" width="900">
+<img src="https://lin30.github.io/craftorder-demo/screenshots/desktop-booking.png?v=8a213c1" alt="游客预约页" width="900">
 
 ### 4. TRAE 实践过程
 
@@ -77,27 +77,27 @@ https://lin30.github.io/craftorder-demo/screenshots/desktop-booking.png
 
 TRAE 中国版跑通验证：
 
-https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-demo-verification.png
+https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-demo-verification.png?v=8a213c1
 
-<img src="https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-demo-verification.png" alt="TRAE 中国版跑通验证" width="900">
+<img src="https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-demo-verification.png?v=8a213c1" alt="TRAE 中国版跑通验证" width="900">
 
 TRAE 中国版创意定位复核：
 
-https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-creative-review.png
+https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-creative-review.png?v=8a213c1
 
-<img src="https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-creative-review.png" alt="TRAE 中国版创意定位复核" width="900">
+<img src="https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-creative-review.png?v=8a213c1" alt="TRAE 中国版创意定位复核" width="900">
 
 TRAE 中国版初赛材料复核：
 
-https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-material-review.png
+https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-material-review.png?v=8a213c1
 
-<img src="https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-material-review.png" alt="TRAE 中国版初赛材料复核" width="900">
+<img src="https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-material-review.png?v=8a213c1" alt="TRAE 中国版初赛材料复核" width="900">
 
 新版页面清理后截图：
 
-https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-copy-review.png
+https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-copy-review.png?v=8a213c1
 
-<img src="https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-copy-review.png" alt="新版页面清理后截图" width="900">
+<img src="https://lin30.github.io/craftorder-demo/process-evidence/trae-cn-copy-review.png?v=8a213c1" alt="新版页面清理后截图" width="900">
 
 Session ID：
 
