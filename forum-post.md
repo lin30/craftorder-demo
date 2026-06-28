@@ -37,7 +37,7 @@ https://github.com/lin30/craftorder-demo
 
 备用下载包：
 
-https://lin30.github.io/craftorder-demo/craftorder-demo-upload.zip?v=clean-20260624
+https://lin30.github.io/craftorder-demo/craftorder-demo-upload.zip?v=process-20260628-3
 
 报名帖链接：
 
