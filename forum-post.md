@@ -63,6 +63,26 @@ https://lin30.github.io/craftorder-demo/screenshots/desktop-booking.png?v=clean-
 
 <img src="https://lin30.github.io/craftorder-demo/screenshots/desktop-booking.png?v=clean-20260624" alt="游客预约页" width="900">
 
+TRAE 中国版关键过程截图：
+
+1. 在 TRAE Work CN 中绑定 `craftorder-demo` 项目并发起只读初赛材料复核：
+
+https://lin30.github.io/craftorder-demo/screenshots/process/trae-cn-process-01-prompt.png?v=process-20260628
+
+<img src="https://lin30.github.io/craftorder-demo/screenshots/process/trae-cn-process-01-prompt.png?v=process-20260628" alt="TRAE 中国版项目绑定与复核提示" width="900">
+
+2. TRAE Work CN 读取本地文件、核验产品截图和体验链接：
+
+https://lin30.github.io/craftorder-demo/screenshots/process/trae-cn-process-02-material-review.png?v=process-20260628
+
+<img src="https://lin30.github.io/craftorder-demo/screenshots/process/trae-cn-process-02-material-review.png?v=process-20260628" alt="TRAE 中国版读取文件并复核材料" width="900">
+
+3. TRAE Work CN 通过浏览器检查 Demo 页面与交互路径：
+
+https://lin30.github.io/craftorder-demo/screenshots/process/trae-cn-process-03-demo-validation.png?v=process-20260628
+
+<img src="https://lin30.github.io/craftorder-demo/screenshots/process/trae-cn-process-03-demo-validation.png?v=process-20260628" alt="TRAE 中国版浏览器验证 Demo 页面" width="900">
+
 ### 4. TRAE 实践过程
 
 本作品使用 TRAE 中国版完成创意复核、Demo 跑通验证和初赛材料复核，并基于复核意见完成新版页面清理与交互打磨。关键过程如下：

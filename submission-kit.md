@@ -68,7 +68,7 @@
 - 游客预约页与预约确认状态。
 - 短视频脚本与小红书传播素材。
 - 政策与真实场景依据页。
-- TRAE 中国版复核截图。
+- TRAE 中国版项目绑定、材料复核与 Demo 验证过程。
 
 ## TRAE 关键任务 Prompt 清单
 
@@ -131,6 +131,7 @@
 - 备用提交包：https://lin30.github.io/craftorder-demo/craftorder-demo-upload.zip
 - 报名帖链接：https://forum.trae.cn/t/topic/38895
 - 产品截图：`screenshots/desktop-studio.png`、`screenshots/desktop-school.png`、`screenshots/desktop-booking.png`。
+- TRAE 中国版过程截图：`screenshots/process/trae-cn-process-01-prompt.png`、`screenshots/process/trae-cn-process-02-material-review.png`、`screenshots/process/trae-cn-process-03-demo-validation.png`。
 - Session ID：已准备 3 条中国版 TRAE Work CN 关键任务 Session ID。
 
 ## 提交检查表
@@ -140,6 +141,7 @@
 - [x] Demo 可公开访问，并已打包备用 HTML zip。
 - [x] 社区初赛帖包含 Demo 简介、创作思路、体验地址和 TRAE 实践过程。
 - [x] 作品关键界面截图不少于 3 张。
+- [x] TRAE 中国版关键过程截图不少于 3 张。
 - [x] 关键任务 Session ID 不少于 3 个。
 - [x] 帖子附上报名帖链接。
 - [ ] 抖音视频带官方话题 `#vibecoding大赏`、`#traeai创造力大赛`，并 @TRAE @抖音科技。

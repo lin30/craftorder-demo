@@ -13,6 +13,7 @@
 - `submission-kit.md`：报名帖、初赛帖、短视频脚本和提交检查表。
 - `evidence-notes.md`：政策与真实场景依据，用于作品帖和答辩。
 - `trae-session-record.md`：TRAE Session ID 记录表和关键 Prompt。
+- `screenshots/process/`：TRAE 中国版关键过程截图。
 
 ## 初赛 Demo 体验路径
 
@@ -35,9 +36,11 @@
 - 定价测算详情与预约确认状态。
 - 传播素材页。
 - 政策与真实场景依据页。
+- TRAE 中国版项目绑定、材料复核与 Demo 验证过程。
 
 正式提交图片请只引用以下稳定目录，避免使用临时预览图：
 
 - 产品截图：`screenshots/desktop-studio.png`、`screenshots/desktop-school.png`、`screenshots/desktop-booking.png`。
+- TRAE 中国版过程截图：`screenshots/process/trae-cn-process-01-prompt.png`、`screenshots/process/trae-cn-process-02-material-review.png`、`screenshots/process/trae-cn-process-03-demo-validation.png`。
 
 备用提交包 `craftorder-demo-upload.zip` 已控制在社区 20MB 文件限制内，包含 Demo 源码、正式产品截图和 TRAE Session ID 记录。
